@@ -1067,7 +1067,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: Jumpforce
-      value: 640
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: MoveSpeed
@@ -1395,7 +1395,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: Jumpforce
-      value: 640
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: MoveSpeed
