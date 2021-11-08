@@ -33,6 +33,11 @@ public class PlayerController : MonoBehaviour
             CurrentPlayer.Jump();
         }
 
+        if (Input.GetMouseButtonDown(0))
+        {
+            CurrentPlayer.DashDirection(Playerinput);
+        }
+
         Playerinput.x = Input.GetAxisRaw("Horizontal");
         MovePlayer();
     }

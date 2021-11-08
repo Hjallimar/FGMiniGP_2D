@@ -1066,6 +1066,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 1837861679}
     m_Modifications:
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
+      propertyPath: DashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
+      propertyPath: DashForce
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: Jumpforce
       value: 250
       objectReference: {fileID: 0}
@@ -1393,6 +1401,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1837861679}
     m_Modifications:
+    - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
+      propertyPath: DashTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
+      propertyPath: DashForce
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: Jumpforce
       value: 250
