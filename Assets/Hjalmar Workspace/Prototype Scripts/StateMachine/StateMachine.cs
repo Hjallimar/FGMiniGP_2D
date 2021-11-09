@@ -6,7 +6,7 @@ using Random = UnityEngine.Random;
 
 public enum StateEnums
 {
-    WALKING = 0, JUMPING = 1
+    WALKING = 0, JUMPING = 1, FLYING = 2, FALLING = 3
 }
 
 [CreateAssetMenu(menuName = "StateMachine")]

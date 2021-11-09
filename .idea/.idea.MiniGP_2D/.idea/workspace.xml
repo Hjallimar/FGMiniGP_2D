@@ -6,6 +6,11 @@
         <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
         <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
       </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
     </expand>
     <select>
       <path>
@@ -18,6 +23,15 @@
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Hjalmar_Scene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Hjalmar_Scene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/PlayerStates/OriJumpState.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/PlayerStates/OriJumpState.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/PlayerStates/OriPlayerStateMachine.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/PlayerStates/OriPlayerStateMachine.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,8 +44,10 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/FallingState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/BaseState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" root0="FORCE_HIGHLIGHTING" />
@@ -39,13 +55,16 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
-        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" />
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/BaseState.cs" />
-        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" />
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" />
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/FallingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/FlyingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" />
+        <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PickUp.cs" />
       </list>
     </option>
   </component>
@@ -91,6 +110,7 @@
       <workItem from="1636378711833" duration="21000" />
       <workItem from="1636379734576" duration="703000" />
       <workItem from="1636385113994" duration="3670000" />
+      <workItem from="1636444997044" duration="4338000" />
     </task>
     <servers />
   </component>

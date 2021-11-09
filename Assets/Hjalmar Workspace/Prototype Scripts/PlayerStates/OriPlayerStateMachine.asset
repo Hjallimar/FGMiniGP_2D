@@ -15,3 +15,5 @@ MonoBehaviour:
   MyStates:
   - {fileID: 11400000, guid: 91e52700eac5dff448076b9a9ee5de05, type: 2}
   - {fileID: 11400000, guid: 0fc315b9e7597ab43a500ba44cbe55ee, type: 2}
+  - {fileID: 11400000, guid: dcf74af0976bdea458cb966f4693286e, type: 2}
+  - {fileID: 11400000, guid: 731cc34bc3759db4cb30c752a2e13367, type: 2}

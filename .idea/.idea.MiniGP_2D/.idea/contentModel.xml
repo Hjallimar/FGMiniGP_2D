@@ -11,6 +11,8 @@
             <e p="P_OriController.cs" t="Include" />
             <e p="StateMachine" t="Include">
               <e p="BaseState.cs" t="Include" />
+              <e p="FallingState.cs" t="Include" />
+              <e p="FlyingState.cs" t="Include" />
               <e p="JumpState.cs" t="Include" />
               <e p="StateMachine.cs" t="Include" />
               <e p="WalkingState.cs" t="Include" />
@@ -18,6 +20,7 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="PickUp.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />

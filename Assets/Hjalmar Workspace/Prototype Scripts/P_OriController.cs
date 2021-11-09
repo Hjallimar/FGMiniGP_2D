@@ -7,9 +7,7 @@ public class P_OriController : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D MyRigidBody;
     [SerializeField] private StateMachine MyStateMachine;
-    
-    //States
-    
+
     void Awake()
     {
         MyStateMachine.SetUpStateMashine(this, MyRigidBody);

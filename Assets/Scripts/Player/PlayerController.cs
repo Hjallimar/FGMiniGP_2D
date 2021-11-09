@@ -8,6 +8,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private PlayerMovement Player1;
     [SerializeField] private PlayerMovement Player2;
+    [SerializeField] private GameObject Indicator;
 
     private PlayerMovement CurrentPlayer;
     private PlayerMovement SecondaryPlayer;
@@ -17,16 +18,24 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         CurrentPlayer = Player1;
+        Indicator.transform.SetParent(CurrentPlayer.transform);
+        Indicator.transform.localPosition = new Vector2(0.0f, 0.75f);
         SecondaryPlayer = Player2;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             Swap();
         }
+        
+        if(Input.GetKeyDown(KeyCode.Tab))
+        {
+            SwapTarget();
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -50,8 +59,17 @@ public class PlayerController : MonoBehaviour
 
     void Swap()
     {
+        Vector2 TempPos = SecondaryPlayer.transform.position;
+        SecondaryPlayer.transform.position = CurrentPlayer.transform.position;
+        CurrentPlayer.transform.position = TempPos;
+    }
+
+    void SwapTarget()
+    {
         PlayerMovement temp = CurrentPlayer;
         CurrentPlayer = SecondaryPlayer;
         SecondaryPlayer = temp;
+        Indicator.transform.SetParent(CurrentPlayer.transform);
+        Indicator.transform.localPosition = new Vector2(0.0f, 0.75f);
     }
 }

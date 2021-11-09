@@ -1,35 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Timers;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "States/WalkState")]
-public class WalkingState : BaseState
+[CreateAssetMenu(menuName = "States/FlyState")]
+public class FlyingState : BaseState
 {
     private Rigidbody2D MyBody;
-    [SerializeField] private float RunSpeed;
+    [SerializeField] private float FlyingSpeed;
     public override void Initialize(StateMachine NewOwner)
     {
         Owner = NewOwner;
         MyBody = Owner.GetPlayerRB();
-
     }
     public override void OnEnter()
     {
         Debug.Log("Entering " + StateName);
-        if (MyBody == null)
-        {
-            MyBody = Owner.GetPlayerRB();
-        }
     }
 
     public override void OnUpdate()
     {
-        Vector2 Direction = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0f);
-        Debug.Log("Updating " + StateName + ", Direction is: " + Direction);
-        MyBody.AddForce(Direction * RunSpeed * Time.deltaTime);
+        Vector2 Direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        MyBody.velocity = Direction.normalized * FlyingSpeed;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Owner.ChangeState(StateEnums.JUMPING);
+            Owner.ChangeState(StateEnums.FALLING);
         }
     }
 

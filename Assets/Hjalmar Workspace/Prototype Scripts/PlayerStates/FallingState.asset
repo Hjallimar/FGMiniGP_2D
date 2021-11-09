@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd675933aae5add47a63341ee238312a, type: 3}
-  m_Name: OriJumpState
+  m_Script: {fileID: 11500000, guid: 157b418b28b153143afa06aa638c6b5e, type: 3}
+  m_Name: FallingState
   m_EditorClassIdentifier: 
-  StateName: 1
-  JumpForce: 250
+  StateName: 3

@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D RB;
     [SerializeField, Range(1.0f, 100.0f)] private float MoveSpeed = 10.0f;
+    [SerializeField] private float Acceleration = 5.0f;
     [SerializeField, Range(1.0f, 1000.0f)] private float Jumpforce = 10.0f;
     [SerializeField, Range(1.0f, 1000.0f)] private float DashForce = 10.0f;
     [SerializeField, Range(0.1f, 1.0f)] private float DashTime = 1.0f;
@@ -17,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public void AddMovement(Vector2 direction)
     {
         if(!Dashing)
-        RB.AddForce(direction * MoveSpeed * Time.deltaTime);
+        RB.AddForce(direction * MoveSpeed * Time.deltaTime * Acceleration);
     }
 
     public void Jump()

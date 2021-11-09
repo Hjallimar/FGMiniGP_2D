@@ -32,9 +32,14 @@ public class JumpState : BaseState
         //Check grounded and then sawp to walking
         Debug.Log("Updating " + StateName);
         timer += Time.deltaTime;
-        if (timer > 2.0f)
+        if (timer > 0.5f)
         {
-            Owner.ChangeState(StateEnums.WALKING);
+            Owner.ChangeState(StateEnums.FALLING);
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Owner.ChangeState(StateEnums.FLYING);
         }
     }
 
