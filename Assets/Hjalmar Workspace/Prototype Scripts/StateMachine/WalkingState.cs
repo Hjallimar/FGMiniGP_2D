@@ -7,6 +7,8 @@ public class WalkingState : BaseState
 {
     private Rigidbody2D MyBody;
     [SerializeField] private float RunSpeed;
+
+    //[SerializeField] private LayerMask GroundLayer;
     public override void Initialize(StateMachine NewOwner)
     {
         Owner = NewOwner;
@@ -25,11 +27,17 @@ public class WalkingState : BaseState
     public override void OnUpdate()
     {
         Vector2 Direction = new Vector2(Input.GetAxisRaw("Horizontal"), 0.0f);
-        Debug.Log("Updating " + StateName + ", Direction is: " + Direction);
         MyBody.AddForce(Direction * RunSpeed * Time.deltaTime);
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Owner.ChangeState(StateEnums.JUMPING);
+        }
+
+        Vector3 StartPos = MyBody.gameObject.transform.position;
+        RaycastHit2D Hit = Physics2D.CircleCast(StartPos, 0.5f,  Vector2.down, 0.1f);//, GroundLayer);
+        if (!Hit)
+        {
+            Owner.ChangeState(StateEnums.FALLING);
         }
     }
 

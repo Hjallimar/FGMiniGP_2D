@@ -9,8 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2df9bbef0eb62164ba63f4224e13bb8d, type: 3}
-  m_Name: FlyingState
+  m_Script: {fileID: 11500000, guid: 157b418b28b153143afa06aa638c6b5e, type: 3}
+  m_Name: OriFallingState
   m_EditorClassIdentifier: 
-  StateName: 2
-  FlyingSpeed: 10
+  StateName: 3
+  GroundLayer:
+    serializedVersion: 2
+    m_Bits: 256

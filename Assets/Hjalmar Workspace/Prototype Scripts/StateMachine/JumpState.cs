@@ -29,8 +29,6 @@ public class JumpState : BaseState
 
     public override void OnUpdate()
     {
-        //Check grounded and then sawp to walking
-        Debug.Log("Updating " + StateName);
         timer += Time.deltaTime;
         if (timer > 0.5f)
         {

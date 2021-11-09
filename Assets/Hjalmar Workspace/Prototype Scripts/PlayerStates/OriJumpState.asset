@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: OriJumpState
   m_EditorClassIdentifier: 
   StateName: 1
-  JumpForce: 250
+  JumpForce: 500

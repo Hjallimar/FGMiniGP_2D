@@ -5,11 +5,15 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "States/FallingState")]
 public class FallingState : BaseState
 {
+    //[SerializeField] private LayerMask GroundLayer;
     private float timer = 0.0f;
+    private Transform Player;
+    private Rigidbody2D PlayerRB;
     public override void Initialize(StateMachine NewOwner)
     {
         Owner = NewOwner;
-
+        Player = Owner.GetPlayer().transform;
+        PlayerRB = Owner.GetPlayerRB();
     }
     public override void OnEnter()
     {
@@ -19,12 +23,16 @@ public class FallingState : BaseState
 
     public override void OnUpdate()
     {
-        //Check grounded and then sawp to walking
-        Debug.Log("Updating " + StateName);
-        timer += Time.deltaTime;
-        if (timer > 1.5f)
+        Vector3 StartPos = Player.position;
+        RaycastHit2D Hit = Physics2D.CircleCast(StartPos, 0.5f,  Vector2.down, 0.1f);//, GroundLayer);
+        if (Hit)
         {
             Owner.ChangeState(StateEnums.WALKING);
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Owner.ChangeState(StateEnums.CHARGE);
         }
     }
 
