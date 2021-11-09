@@ -43,6 +43,8 @@ public class LavaFloor : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             Debug.Log("Kill ze player");
+            PlayerMovement Player = other.gameObject.GetComponent<PlayerMovement>();
+            Player.Die();
         }
     }
 }

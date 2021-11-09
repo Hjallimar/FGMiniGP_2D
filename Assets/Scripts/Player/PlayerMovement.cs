@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Timers;
@@ -15,6 +16,17 @@ public class PlayerMovement : MonoBehaviour
     private Coroutine DashingCorutine;
     private bool Dashing = false;
     private bool DashCD;
+    public bool Dead = false;
+    private Vector2 SpawnPos;
+    private PlayerController MyController;
+
+    public void InitializePlayer(PlayerController playerController)
+    {
+        MyController = playerController;
+        SpawnPos = transform.position;
+        Dead = false;
+    }
+
     public void AddMovement(Vector2 direction)
     {
         if(!Dashing)
@@ -63,6 +75,28 @@ public class PlayerMovement : MonoBehaviour
         }
         DashCD = false;
         DashingCorutine = null;
+    }
+
+
+    public void Die()
+    {
+        Dead = true;
+        RB.velocity = Vector2.zero;
+        RB.isKinematic = true;
+        MyController.ResetGame();
+    }
+    
+    public void OnRespawn()
+    {
+        RB.isKinematic = false;
+        transform.position = SpawnPos;
+        Dead = false;
+        RB.velocity = Vector2.zero;
+    }
+
+    public void UpdateCheckPoint(Vector2 NewSpawnPoint)
+    {
+        SpawnPos = NewSpawnPoint;
     }
     
 }

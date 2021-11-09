@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement CurrentPlayer;
     private PlayerMovement SecondaryPlayer;
     private Camera PlayerCam;
-    
+
     private float MinSize = 5.0f;
     private float MaxSize = 10.0f;
     private float LerpValue = 0.0f;
@@ -26,6 +26,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Player1.InitializePlayer(this);
+        Player2.InitializePlayer(this);
         PlayerCam = Camera.main;
         MinSize = PlayerCam.orthographicSize;
         MaxSize = MinSize * 2;
@@ -67,11 +69,14 @@ public class PlayerController : MonoBehaviour
     void MovePlayer()
     {
         CurrentPlayer.AddMovement(Playerinput);
-        SecondaryPlayer.AddMovement(-Playerinput);
+        if(!SecondaryPlayer.Dead)
+            SecondaryPlayer.AddMovement(-Playerinput);
     }
 
     void Swap()
     {
+        if (SecondaryPlayer.Dead)
+            return;
         Vector2 TempPos = SecondaryPlayer.transform.position;
         SecondaryPlayer.transform.position = CurrentPlayer.transform.position;
         CurrentPlayer.transform.position = TempPos;
@@ -79,6 +84,8 @@ public class PlayerController : MonoBehaviour
 
     void SwapTarget()
     {
+        if (SecondaryPlayer.Dead)
+            return;
         PlayerMovement temp = CurrentPlayer;
         CurrentPlayer = SecondaryPlayer;
         SecondaryPlayer = temp;
@@ -88,6 +95,12 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCamera()
     {
+        if (SecondaryPlayer.Dead)
+        {
+            PlayerCam.orthographicSize = MinSize;
+            PlayerCam.transform.position = new Vector3(CurrentPlayer.transform.position.x, CurrentPlayer.transform.position.y, -10);
+            return;
+        }
         Vector3 Halfway = Player1.transform.position - Player2.transform.position;
         Vector3 Center = new Vector3(0.0f , transform.position.y, CameraOffset.z) + Halfway * 0.5f;
         if (AdjustCameraX)
@@ -118,5 +131,22 @@ public class PlayerController : MonoBehaviour
         
         PlayerCam.orthographicSize = Mathf.Lerp(MinSize, MaxSize, LerpValue );
         PlayerCam.transform.position = Center;
+    }
+
+    public void ResetGame()
+    {
+        if (Player1.Dead && Player2.Dead)
+        {
+            Player1.OnRespawn();
+            Player2.OnRespawn();
+        }
+        else if (CurrentPlayer.Dead)
+        {
+            PlayerMovement temp = CurrentPlayer;
+            CurrentPlayer = SecondaryPlayer;
+            SecondaryPlayer = temp;
+            Indicator.transform.SetParent(CurrentPlayer.transform);
+            Indicator.transform.localPosition = new Vector2(0.0f, 0.0f);
+        }
     }
 }
