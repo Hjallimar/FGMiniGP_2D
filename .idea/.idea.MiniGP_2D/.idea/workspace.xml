@@ -20,11 +20,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Hjalmar Workspace/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/PickUp.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/PickUp.cs" afterDir="false" />
-    </list>
+    <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -101,7 +97,7 @@
       <workItem from="1636378711833" duration="21000" />
       <workItem from="1636379734576" duration="703000" />
       <workItem from="1636385113994" duration="3670000" />
-      <workItem from="1636444997044" duration="5495000" />
+      <workItem from="1636444997044" duration="5934000" />
     </task>
     <servers />
   </component>
