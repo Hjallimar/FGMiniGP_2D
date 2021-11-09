@@ -6,7 +6,6 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    
     [SerializeField] private Rigidbody2D RB;
     [Header("Movement")]
     [SerializeField, Range(1.0f, 100.0f)] private float MoveSpeed = 10.0f;
@@ -41,66 +40,71 @@ public class PlayerMovement : MonoBehaviour
         RB.AddForce(direction * MoveSpeed * Time.deltaTime * Acceleration);
     }
 
-    public void Jump()
-    {
-        if(Dashing)
-            return;
-
-        if (Grounded || jumpCounter < MaxJumpCount)
+    #region Jumping
+        public void Jump()
         {
-            RB.AddForce(Vector2.up * Jumpforce);
-            jumpCounter++;
-        }
-    }
+            if(Dashing)
+                return;
 
-    public void DashDirection(Vector2 Direction)
-    {
-        if (!Dashing && !DashCD)
+            if (Grounded || jumpCounter < MaxJumpCount)
+            {
+                RB.AddForce(Vector2.up * Jumpforce);
+                jumpCounter++;
+            }
+        }
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            DashingCorutine = StartCoroutine(Dash(Direction));
+            Grounded = true;
+            jumpCounter = 0;
         }
-    }
-
-    private IEnumerator Dash(Vector2 Direction)
-    {
-        Dashing = true;
-        Vector2 Velocity = Vector2.zero;
-        Vector2 DashVelocity = Direction * DashForce;
-        float timer = 0.0f;
-        while (timer < DashTime)
+        private void OnTriggerExit2D(Collider2D other)
         {
-            timer += Time.deltaTime;
-            RB.velocity = DashVelocity;
-            yield return new WaitForEndOfFrame();
+            Grounded = false;
         }
-        RB.velocity = Velocity;
-        Dashing = false;
-        DashingCorutine = StartCoroutine(DashCoolDown());
-    }
+    #endregion
+    
 
-    private IEnumerator DashCoolDown()
-    {
-        DashCD = true;
-        float timer = 0.0f;
-        while (timer < CoolDown)
+    #region Dashing
+
+        public void DashDirection(Vector2 Direction)
         {
-            timer += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            if (!Dashing && !DashCD)
+            {
+                DashingCorutine = StartCoroutine(Dash(Direction));
+            }
         }
-        DashCD = false;
-        DashingCorutine = null;
-    }
 
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Grounded = true;
-        jumpCounter = 0;
-    }
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        Grounded = false;
-    }
+        private IEnumerator Dash(Vector2 Direction)
+        {
+            Dashing = true;
+            Vector2 Velocity = Vector2.zero;
+            Vector2 DashVelocity = Direction * DashForce;
+            float timer = 0.0f;
+            while (timer < DashTime)
+            {
+                timer += Time.deltaTime;
+                RB.velocity = DashVelocity;
+                yield return new WaitForEndOfFrame();
+            }
+            RB.velocity = Velocity;
+            Dashing = false;
+            DashingCorutine = StartCoroutine(DashCoolDown());
+        }
 
+        private IEnumerator DashCoolDown()
+        {
+            DashCD = true;
+            float timer = 0.0f;
+            while (timer < CoolDown)
+            {
+                timer += Time.deltaTime;
+                yield return new WaitForEndOfFrame();
+            }
+            DashCD = false;
+            DashingCorutine = null;
+        }
+    #endregion
+    
     public void Die()
     {
         Dead = true;
@@ -121,5 +125,4 @@ public class PlayerMovement : MonoBehaviour
     {
         SpawnPos = NewSpawnPoint;
     }
-    
 }

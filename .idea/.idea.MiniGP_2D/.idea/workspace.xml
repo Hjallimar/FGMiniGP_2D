@@ -20,7 +20,12 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="" />
+    <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Hazards/LavaFloor.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Hazards/LavaFloor.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -37,7 +42,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hazards/LavaFloor.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/OneWayTrigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -49,9 +56,9 @@
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/FlyingState.cs" />
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" />
         <option value="$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/PickUp.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/PickUp.cs" />
       </list>
     </option>
   </component>

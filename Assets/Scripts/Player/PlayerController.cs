@@ -6,13 +6,21 @@ using UnityEngine;
 //Sick player contoller
 public class PlayerController : MonoBehaviour
 {
+    [Header("Keybinds")]
     [SerializeField] private KeyCode SwapPositionKey = KeyCode.Q;
     [SerializeField] private KeyCode SwapTargetKey = KeyCode.E;
-    [SerializeField] private Vector3 CameraOffset;
+    [Header("Player GameObjects")]
     [SerializeField] private PlayerMovement Player1;
     [SerializeField] private PlayerMovement Player2;
+    [Header("Current active indicator")]
     [SerializeField] private GameObject Indicator;
 
+    [Header("Mirror Restrictions")] 
+    [SerializeField] private bool MirrorMove = false;
+    [SerializeField] private bool MirrorJump = false;
+    [SerializeField] private bool MirrorDash = false;
+    [Header("Camera Settings")]
+    [SerializeField] private Vector3 CameraOffset = new Vector3(0,0,-10);
     [SerializeField] private bool AdjustCameraX = false;
     [SerializeField] private bool AdjustCameraY = false;
   
@@ -41,28 +49,37 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Playerinput.x = Input.GetAxisRaw("Horizontal");
         if (Input.GetKeyDown(SwapPositionKey))
             Swap();
 
         if(Input.GetKeyDown(SwapTargetKey))
             SwapTarget();
 
-
         if (Input.GetKeyDown(KeyCode.Space))
-            CurrentPlayer.Jump();
+            Jump();
 
         if (Input.GetMouseButtonDown(0))
+        {
             CurrentPlayer.DashDirection(Playerinput);
+            if(MirrorDash && !SecondaryPlayer.Dead)
+                SecondaryPlayer.DashDirection(-Playerinput);
+        }
 
-        Playerinput.x = Input.GetAxisRaw("Horizontal");
         MovePlayer();
         UpdateCamera();
     }
 
+    void Jump()
+    {
+        CurrentPlayer.Jump();
+        if(MirrorJump && !SecondaryPlayer.Dead)
+            SecondaryPlayer.Jump();
+    }
     void MovePlayer()
     {
         CurrentPlayer.AddMovement(Playerinput);
-        if(!SecondaryPlayer.Dead)
+        if(MirrorMove && !SecondaryPlayer.Dead)
             SecondaryPlayer.AddMovement(-Playerinput);
     }
 
