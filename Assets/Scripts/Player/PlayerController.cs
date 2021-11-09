@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         PlayerCam = Camera.main;
+        MinSize = PlayerCam.orthographicSize;
+        MaxSize = MinSize * 2;
         CurrentPlayer = Player1;
         Indicator.transform.SetParent(CurrentPlayer.transform);
         Indicator.transform.localPosition = new Vector2(0.0f, 0.0f);
@@ -86,8 +88,8 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCamera()
     {
-        Vector3 Center = new Vector3(0.0f , transform.position.y, CameraOffset.z);
         Vector3 Halfway = Player1.transform.position - Player2.transform.position;
+        Vector3 Center = new Vector3(0.0f , transform.position.y, CameraOffset.z) + Halfway * 0.5f;
         if (AdjustCameraX)
         {
             Center.x = Halfway.x * 0.5f + Player2.transform.position.x;
@@ -98,20 +100,22 @@ public class PlayerController : MonoBehaviour
             Center.y = Halfway.y * 0.5f + Player2.transform.position.y;
         }
 
+        Debug.Log("" + Halfway);
         if (Mathf.Abs(Halfway.x) > 14)
         {
             float temp = Mathf.Abs(Halfway.x) - 14;
             LerpValue = temp * 0.1f;
         }
-        else if (Mathf.Abs(Halfway.y) > 10)
+        else if (Mathf.Abs(Halfway.y) > 8)
         {
-            float temp = Mathf.Abs(Halfway.x) - 10;
-            LerpValue = temp * 0.08f;
+            float temp = Mathf.Abs(Halfway.y) - 8;
+            LerpValue = temp * 0.1f;
         }
         else
         {
             LerpValue = 0.0f;
         }
+        
         PlayerCam.orthographicSize = Mathf.Lerp(MinSize, MaxSize, LerpValue );
         PlayerCam.transform.position = Center;
     }
