@@ -6,7 +6,8 @@ using UnityEngine;
 //Sick player contoller
 public class PlayerController : MonoBehaviour
 {
-    
+    [SerializeField] private KeyCode SwapPositionKey = KeyCode.Q;
+    [SerializeField] private KeyCode SwapTargetKey = KeyCode.E;
     [SerializeField] private Vector3 CameraOffset;
     [SerializeField] private PlayerMovement Player1;
     [SerializeField] private PlayerMovement Player2;
@@ -40,26 +41,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
+        if (Input.GetKeyDown(SwapPositionKey))
             Swap();
-        }
-        
-        if(Input.GetKeyDown(KeyCode.Tab))
-        {
+
+        if(Input.GetKeyDown(SwapTargetKey))
             SwapTarget();
-        }
-        
+
 
         if (Input.GetKeyDown(KeyCode.Space))
-        {
             CurrentPlayer.Jump();
-        }
 
         if (Input.GetMouseButtonDown(0))
-        {
             CurrentPlayer.DashDirection(Playerinput);
-        }
 
         Playerinput.x = Input.GetAxisRaw("Horizontal");
         MovePlayer();
@@ -104,16 +97,10 @@ public class PlayerController : MonoBehaviour
         Vector3 Halfway = Player1.transform.position - Player2.transform.position;
         Vector3 Center = new Vector3(0.0f , transform.position.y, CameraOffset.z) + Halfway * 0.5f;
         if (AdjustCameraX)
-        {
             Center.x = Halfway.x * 0.5f + Player2.transform.position.x;
-        }
-
         if (AdjustCameraY)
-        {
             Center.y = Halfway.y * 0.5f + Player2.transform.position.y;
-        }
-
-        Debug.Log("" + Halfway);
+        
         if (Mathf.Abs(Halfway.x) > 14)
         {
             float temp = Mathf.Abs(Halfway.x) - 14;
@@ -125,10 +112,8 @@ public class PlayerController : MonoBehaviour
             LerpValue = temp * 0.1f;
         }
         else
-        {
             LerpValue = 0.0f;
-        }
-        
+
         PlayerCam.orthographicSize = Mathf.Lerp(MinSize, MaxSize, LerpValue );
         PlayerCam.transform.position = Center;
     }
