@@ -6,19 +6,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    
     [SerializeField] private Rigidbody2D RB;
+    [Header("Movement")]
     [SerializeField, Range(1.0f, 100.0f)] private float MoveSpeed = 10.0f;
     [SerializeField] private float Acceleration = 5.0f;
-    [SerializeField, Range(1.0f, 1000.0f)] private float Jumpforce = 10.0f;
-    [SerializeField, Range(1.0f, 1000.0f)] private float DashForce = 10.0f;
+    [Header("Dashing")]
     [SerializeField, Range(0.1f, 1.0f)] private float DashTime = 1.0f;
+    [SerializeField, Range(1.0f, 1000.0f)] private float DashForce = 10.0f;
     [SerializeField] private float CoolDown = 3.0f;
+    [Header("Jumping")]
+    [SerializeField, Range(1.0f, 1000.0f)] private float Jumpforce = 10.0f;
+    [SerializeField] private int MaxJumpCount = 2;
+    
     private Coroutine DashingCorutine;
     private bool Dashing = false;
     private bool DashCD;
     public bool Dead = false;
     private Vector2 SpawnPos;
     private PlayerController MyController;
+    private bool Grounded = false;
+    private int jumpCounter = 0;
 
     public void InitializePlayer(PlayerController playerController)
     {
@@ -35,8 +43,14 @@ public class PlayerMovement : MonoBehaviour
 
     public void Jump()
     {
-        if(!Dashing)
-         RB.AddForce(Vector2.up * Jumpforce);
+        if(Dashing)
+            return;
+
+        if (Grounded || jumpCounter < MaxJumpCount)
+        {
+            RB.AddForce(Vector2.up * Jumpforce);
+            jumpCounter++;
+        }
     }
 
     public void DashDirection(Vector2 Direction)
@@ -77,6 +91,15 @@ public class PlayerMovement : MonoBehaviour
         DashingCorutine = null;
     }
 
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Grounded = true;
+        jumpCounter = 0;
+    }
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        Grounded = false;
+    }
 
     public void Die()
     {
