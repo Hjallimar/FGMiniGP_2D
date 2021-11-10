@@ -336,6 +336,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3326476732185972897, guid: 5358d3cad72093f489de5373b1bd2488, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.49
+      objectReference: {fileID: 0}
     - target: {fileID: 4887596714778230328, guid: 5358d3cad72093f489de5373b1bd2488, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -379,6 +383,10 @@ PrefabInstance:
     - target: {fileID: 4887596714778230328, guid: 5358d3cad72093f489de5373b1bd2488, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7354626291822911148, guid: 5358d3cad72093f489de5373b1bd2488, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.33
       objectReference: {fileID: 0}
     - target: {fileID: 7392737242954022031, guid: 5358d3cad72093f489de5373b1bd2488, type: 3}
       propertyPath: LavaFloor
