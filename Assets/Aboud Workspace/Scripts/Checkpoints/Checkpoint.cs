@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
-{
+{    
+    [Header("Respawn Points")]
     [SerializeField] private Transform redSpawn;
     [SerializeField] private Transform greenSpawn;
+    [Header("Lava Respawn")]
     [SerializeField] private float     DistanceBetweenLavaAndPlayer;
     [SerializeField] private GameObject     LavaFloor;
 
