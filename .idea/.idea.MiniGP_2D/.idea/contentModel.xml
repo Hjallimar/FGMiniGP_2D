@@ -18,6 +18,10 @@
               <e p="PathPrediction.cs" t="Include" />
               <e p="Projectile.cs" t="Include" />
             </e>
+            <e p="Trampoline" t="Include">
+              <e p="Button.cs" t="Include" />
+              <e p="Trampoline.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Hjalmar Workspace" t="Include">
