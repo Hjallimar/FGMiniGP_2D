@@ -32,6 +32,8 @@ public class PlayerController : MonoBehaviour
     private float MaxSize = 10.0f;
     private float LerpValue = 0.0f;
     private Vector2 Playerinput;
+
+    public Checkpoint checkpoint;
     // Start is called before the first frame update
     void Start()
     {
@@ -141,6 +143,7 @@ public class PlayerController : MonoBehaviour
         {
             Player1.OnRespawn();
             Player2.OnRespawn();
+            checkpoint.ResetLava();
         }
         else if (CurrentPlayer.Dead)
         {

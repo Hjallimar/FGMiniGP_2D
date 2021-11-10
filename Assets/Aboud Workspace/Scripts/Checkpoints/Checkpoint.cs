@@ -8,8 +8,9 @@ public class Checkpoint : MonoBehaviour
     [SerializeField] private Transform redSpawn;
     [SerializeField] private Transform greenSpawn;
     [Header("Lava Respawn")]
-    [SerializeField] private float     DistanceBetweenLavaAndPlayer;
-    [SerializeField] private GameObject     LavaFloor;
+    [SerializeField] private float DistanceBetweenLavaAndPlayer;
+    [SerializeField] private GameObject       LavaFloor;
+    [SerializeField] private PlayerController playerController;
 
     private                  bool           greenReached;
     private                  bool           redReached;
@@ -36,16 +37,22 @@ public class Checkpoint : MonoBehaviour
             {
                 redPlayerMov.UpdateCheckPoint(redSpawn.position);
                 greenPlayerMov.UpdateCheckPoint(greenSpawn.position);
-                if (LavaFloor != null)
-                {
-                    LavaFloor.transform.position = new Vector3(transform.position.x, transform.position.y - DistanceBetweenLavaAndPlayer, transform.position.z);
-                }
-                else
-                {
-                    Debug.LogError("You need to assign Lava Floor Variable");
-                }
+                playerController.checkpoint = this;
+                
             }
 
+        }
+    }
+
+    public void ResetLava()
+    {
+        if (LavaFloor != null)
+        {
+            LavaFloor.transform.position = new Vector3(transform.position.x, transform.position.y - DistanceBetweenLavaAndPlayer, transform.position.z);
+        }
+        else
+        {
+            Debug.LogError("You need to assign Lava Floor Variable");
         }
     }
 }
