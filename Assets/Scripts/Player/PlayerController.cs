@@ -12,6 +12,11 @@ public class PlayerController : MonoBehaviour
     [Header("Player GameObjects")]
     [SerializeField] private PlayerMovement Player1;
     [SerializeField] private PlayerMovement Player2;
+    
+    [Header("MultiPlayer Mode")] 
+    [SerializeField] private bool MultiPlayer = false;
+    private Vector2 SecondPlayerInput;
+    
     [Header("Current active indicator")]
     [SerializeField] private GameObject Indicator;
 
@@ -20,15 +25,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool MirrorJump = false;
     [SerializeField] private bool MirrorDash = false;
     [SerializeField] private bool MirrorGravity = false;
+    
     [Header("Camera Settings")]
-    [SerializeField] private Vector3 CameraOffset = new Vector3(0,0,-10);
+    private Vector3 CameraOffset = new Vector3(0,0,-10);
     [SerializeField] private bool AdjustCameraX = false;
     [SerializeField] private bool AdjustCameraY = false;
+    [SerializeField] private Camera PrimaryCamera;
+    [SerializeField] private Camera SecondaryCamera;
   
     private PlayerMovement CurrentPlayer;
     private PlayerMovement SecondaryPlayer;
-    private Camera PlayerCam;
 
+    //SinglePlayer Camera settings
     private float MinSize = 5.0f;
     private float MaxSize = 10.0f;
     private float LerpValue = 0.0f;
@@ -40,41 +48,97 @@ public class PlayerController : MonoBehaviour
     {
         Player1.InitializePlayer(this);
         Player2.InitializePlayer(this);
-        PlayerCam = Camera.main;
-        MinSize = PlayerCam.orthographicSize;
-        MaxSize = MinSize * 2;
+
         CurrentPlayer = Player1;
-        Indicator.transform.SetParent(CurrentPlayer.transform);
-        Indicator.transform.localPosition = new Vector2(0.0f, 0.0f);
         SecondaryPlayer = Player2;
+        
         if (MirrorGravity)
         {
             Player2.GetComponent<Rigidbody2D>().gravityScale = -1;
             Player2.transform.Rotate(Vector3.right, 180);
         }
+
+        if (MultiPlayer)
+        {
+            SetupMultiPlayer();
+            return;
+        }
+        SetupSinglePlayer();
     }
 
-    // Update is called once per frame
-    void Update()
+    void SetupSinglePlayer()
     {
-        Playerinput.x = Input.GetAxisRaw("Horizontal");
+        SecondaryCamera.enabled = false;
+        MinSize = PrimaryCamera.orthographicSize;
+        MaxSize = MinSize * 2;
+        Indicator.transform.SetParent(CurrentPlayer.transform);
+        Indicator.transform.localPosition = new Vector2(0.0f, 0.0f);
+    }
+
+    void SetupMultiPlayer()
+    {
+        Indicator.SetActive(false);
+        SecondaryCamera.enabled = true;
+        PrimaryCamera.rect = new Rect(0,0, 0.49f, 1.0f);
+        SecondaryCamera.rect = new Rect(0.51f,0, 0.49f, 1.0f);
+        MirrorDash = false;
+        MirrorJump = false;
+        MirrorMove = false;
+    }
+    
+    void MultiPlayerUpdate()
+    {
+        Playerinput.x = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
+        SecondPlayerInput.x = Input.GetKey(KeyCode.LeftArrow) ? -1 : Input.GetKey(KeyCode.RightArrow) ? 1 : 0;
+        
         if (Input.GetKeyDown(SwapPositionKey))
             Swap();
 
-        if(Input.GetKeyDown(SwapTargetKey))
-            SwapTarget();
-
         if (Input.GetKeyDown(KeyCode.Space))
-            Jump();
+            CurrentPlayer.Jump();
+        if(Input.GetKeyDown(KeyCode.UpArrow))
+            SecondaryPlayer.Jump();
+
+        CurrentPlayer.AddMovement(Playerinput);
+        SecondaryPlayer.AddMovement(SecondPlayerInput);
 
         if (Input.GetMouseButtonDown(0))
-        {
             CurrentPlayer.DashDirection(Playerinput);
-            if(MirrorDash && !SecondaryPlayer.Dead)
-                SecondaryPlayer.DashDirection(-Playerinput);
-        }
+        if (Input.GetMouseButtonDown(0))
+            SecondaryPlayer.DashDirection(SecondPlayerInput);
+        
 
         MovePlayer();
+        UpdateCamera();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (MultiPlayer)
+        {
+            MultiPlayerUpdate();
+        }
+        else
+        {
+            Playerinput.x = Input.GetAxisRaw("Horizontal");
+            if (Input.GetKeyDown(SwapPositionKey))
+                Swap();
+
+            if(Input.GetKeyDown(SwapTargetKey))
+                SwapTarget();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+                Jump();
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                CurrentPlayer.DashDirection(Playerinput);
+                if(MirrorDash && !SecondaryPlayer.Dead)
+                    SecondaryPlayer.DashDirection(-Playerinput);
+            }
+            MovePlayer();
+        }
+        
         UpdateCamera();
     }
 
@@ -113,10 +177,16 @@ public class PlayerController : MonoBehaviour
 
     void UpdateCamera()
     {
+        if (MultiPlayer)
+        {
+            PrimaryCamera.transform.position = Player1.transform.position + CameraOffset;
+            SecondaryCamera.transform.position = Player2.transform.position + CameraOffset;
+            return;
+        }
         if (SecondaryPlayer.Dead)
         {
-            PlayerCam.orthographicSize = MinSize;
-            PlayerCam.transform.position = new Vector3(CurrentPlayer.transform.position.x, CurrentPlayer.transform.position.y, -10);
+            PrimaryCamera.orthographicSize = MinSize;
+            PrimaryCamera.transform.position = new Vector3(CurrentPlayer.transform.position.x, CurrentPlayer.transform.position.y, -10);
             return;
         }
         Vector3 Halfway = Player1.transform.position - Player2.transform.position;
@@ -139,8 +209,8 @@ public class PlayerController : MonoBehaviour
         else
             LerpValue = 0.0f;
 
-        PlayerCam.orthographicSize = Mathf.Lerp(MinSize, MaxSize, LerpValue );
-        PlayerCam.transform.position = Center;
+        PrimaryCamera.orthographicSize = Mathf.Lerp(MinSize, MaxSize, LerpValue );
+        PrimaryCamera.transform.position = Center;
     }
 
     public void ResetGame()
