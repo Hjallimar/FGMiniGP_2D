@@ -56,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
 
             if (Grounded || jumpCounter < MaxJumpCount)
             {
-                RB.AddForce(Vector2.up * Jumpforce);
+                RB.AddForce(Vector2.up * Jumpforce * RB.gravityScale);
                 jumpCounter++;
             }
         }

@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool MirrorMove = false;
     [SerializeField] private bool MirrorJump = false;
     [SerializeField] private bool MirrorDash = false;
+    [SerializeField] private bool MirrorGravity = false;
     [Header("Camera Settings")]
     [SerializeField] private Vector3 CameraOffset = new Vector3(0,0,-10);
     [SerializeField] private bool AdjustCameraX = false;
@@ -46,6 +47,11 @@ public class PlayerController : MonoBehaviour
         Indicator.transform.SetParent(CurrentPlayer.transform);
         Indicator.transform.localPosition = new Vector2(0.0f, 0.0f);
         SecondaryPlayer = Player2;
+        if (MirrorGravity)
+        {
+            Player2.GetComponent<Rigidbody2D>().gravityScale = -1;
+            Player2.transform.Rotate(Vector3.right, 180);
+        }
     }
 
     // Update is called once per frame
