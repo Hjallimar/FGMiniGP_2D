@@ -8,16 +8,20 @@ public class PathPrediction : MonoBehaviour
     public  Vector3          gravity;
     public  int              numSteps;
     public  GameObject       stepColliderObject;
+    public  Projectile       projectile;
     private List<GameObject> stepColliders = new List<GameObject>();
 
-    private void Start()
+    private void Awake()
     {
+        
         for (int i = 0; i < numSteps; i++)
         {
             GameObject StepCollider = Instantiate(stepColliderObject);
             stepColliders.Add(StepCollider);
 
         }
+
+        projectile.transformPoints = stepColliders;
         UpdatePath(transform.position, velocity, gravity);
     }
 
