@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ContentModelStore">
-    <e p="C:\Users\Hjalmar.Andersson\AppData\Local\JetBrains\Rider2020.2\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Hjalmar.Andersson\AppData\Local\JetBrains\Rider2020.2\resharper-host\Local\Transient\Rider\v202\SolutionCaches\_MiniGP_2D.-1053540758.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Hjalmar.Andersson\GitHubProjects\MiniGP_2D" t="IncludeRecursive">
+    <e p="C:\Users\aboud\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\aboud\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_MiniGP_2D.-377795649.00" t="ExcludeRecursive" />
+    <e p="D:\repos\MiniGP_2D" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Aboud Workspace" t="Include">
+          <e p="Scripts" t="Include">
+            <e p="GravityObject.cs" t="Include" />
+            <e p="GravitySystem.cs" t="Include" />
+            <e p="GravityTrigger.cs" t="Include" />
+            <e p="PathPrediction.cs" t="Include" />
+            <e p="Projectile.cs" t="Include" />
+          </e>
+        </e>
         <e p="Hjalmar Workspace" t="Include">
           <e p="Prototype Scripts" t="Include">
             <e p="P_OriController.cs" t="Include" />
             <e p="StateMachine" t="Include">
               <e p="BaseState.cs" t="Include" />
+              <e p="ChargeState.cs" t="Include" />
               <e p="FallingState.cs" t="Include" />
               <e p="FlyingState.cs" t="Include" />
               <e p="JumpState.cs" t="Include" />
@@ -20,6 +30,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
+          <e p="Hazards" t="Include">
+            <e p="LavaFloor.cs" t="Include" />
+          </e>
+          <e p="OneWayTrigger.cs" t="Include" />
           <e p="PickUp.cs" t="Include" />
           <e p="Player" t="Include">
             <e p="PlayerController.cs" t="Include" />
