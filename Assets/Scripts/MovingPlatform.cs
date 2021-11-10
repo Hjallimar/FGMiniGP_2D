@@ -30,9 +30,9 @@ public class MovingPlatform : MonoBehaviour
         TimeCounter = 0.0f;
         LerpValue = 0.0f;
         if (StickyPlatform)
-        {
             TriggerZone.enabled = true;
-        }
+        else
+            TriggerZone.enabled = false;
     }
 
     // Update is called once per frame
