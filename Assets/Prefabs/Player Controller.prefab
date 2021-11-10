@@ -46,9 +46,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e2f5103e9a6344da22f5a950ad9059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SwapPositionKey: 113
+  SwapTargetKey: 101
   Player1: {fileID: 3632531958032584196}
   Player2: {fileID: 4763914872349724692}
   Indicator: {fileID: 3320502120844356868}
+  MirrorMove: 0
+  MirrorJump: 0
+  MirrorDash: 0
+  CameraOffset: {x: 0, y: 0, z: -10}
+  AdjustCameraX: 0
+  AdjustCameraY: 0
 --- !u!1001 &1184124230605966767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -308,6 +316,10 @@ PrefabInstance:
     - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: MoveSpeed
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5940821719582809531, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
+      propertyPath: playerEnum
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6609048778486830822, guid: d54c7536c884b0a4aa9467fd60c23783, type: 3}
       propertyPath: m_RootOrder

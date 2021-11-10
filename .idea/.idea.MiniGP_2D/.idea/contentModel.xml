@@ -8,11 +8,16 @@
       <e p="Assets" t="Include">
         <e p="Aboud Workspace" t="Include">
           <e p="Scripts" t="Include">
-            <e p="GravityObject.cs" t="Include" />
-            <e p="GravitySystem.cs" t="Include" />
-            <e p="GravityTrigger.cs" t="Include" />
-            <e p="PathPrediction.cs" t="Include" />
-            <e p="Projectile.cs" t="Include" />
+            <e p="Checkpoints" t="Include">
+              <e p="Checkpoint.cs" t="Include" />
+            </e>
+            <e p="Gravity" t="Include">
+              <e p="GravityObject.cs" t="Include" />
+              <e p="GravitySystem.cs" t="Include" />
+              <e p="GravityTrigger.cs" t="Include" />
+              <e p="PathPrediction.cs" t="Include" />
+              <e p="Projectile.cs" t="Include" />
+            </e>
           </e>
         </e>
         <e p="Hjalmar Workspace" t="Include">

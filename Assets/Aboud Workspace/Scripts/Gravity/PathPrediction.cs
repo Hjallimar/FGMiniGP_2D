@@ -23,8 +23,7 @@ public class PathPrediction : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-            UpdatePath(transform.position, velocity, gravity);
+        UpdatePath(transform.position, velocity, gravity);
     }
 
     private void UpdatePath(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
@@ -47,8 +46,8 @@ public class PathPrediction : MonoBehaviour
 
             lineRenderer.SetPosition(i, position);
  
-            position += currentVelocity * Time.deltaTime;
-            currentVelocity += gravity * Time.deltaTime;
+            position += currentVelocity;
+            currentVelocity += gravity;
         }
 
         

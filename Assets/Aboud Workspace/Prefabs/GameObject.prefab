@@ -71,4 +71,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravity: {x: 0, y: 0, z: 0}
-  gravityMultiplier: 30
+  gravityMultiplier: 0.005

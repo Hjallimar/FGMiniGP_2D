@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float CoolDown = 3.0f;
     [Header("Jumping")]
     [SerializeField, Range(1.0f, 1000.0f)] private float Jumpforce = 10.0f;
-    [SerializeField] private int MaxJumpCount = 2;
+    [SerializeField] private int    MaxJumpCount = 2;
     
     private Coroutine DashingCorutine;
     private bool Dashing = false;
@@ -27,6 +27,14 @@ public class PlayerMovement : MonoBehaviour
     private bool Grounded = false;
     private int jumpCounter = 0;
 
+    public Player playerEnum;
+
+    public enum Player
+    {
+        RedPlayer,
+        GreenPlayer
+    }
+    
     public void InitializePlayer(PlayerController playerController)
     {
         MyController = playerController;
