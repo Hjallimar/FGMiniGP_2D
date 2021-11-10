@@ -14,6 +14,12 @@ public class LavaFloor : MonoBehaviour
     [SerializeField] private GameObject LavaBackground;
     private BoxCollider2D LavaCollider;
     private Vector2 StartPosition;
+
+    //Pause movement for lava
+    private float PauseTimer = 0.0f;
+    private float PauseCounter = 0.0f;
+    private bool PauseMovement = false;
+    
     void Start()
     {
         StartPosition = transform.position;
@@ -35,9 +41,25 @@ public class LavaFloor : MonoBehaviour
 
     void Update()
     {
-        transform.position += Vector3.up * MoveSpeed * Time.deltaTime;
+        if (PauseMovement)
+        {
+            PauseCounter += Time.deltaTime;
+            if (PauseCounter >= PauseTimer)
+                PauseMovement = false;
+        }
+        else
+        {
+            transform.position += Vector3.up * MoveSpeed * Time.deltaTime;
+        }
     }
 
+    public void PauseLava(float time)
+    {
+        PauseMovement = true;
+        PauseTimer = time;
+        PauseCounter = 0.0f;
+    }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))

@@ -6,10 +6,10 @@ using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
-    [SerializeField] private ParticleSystem OnCollect;
     [SerializeField] private CircleCollider2D Collider;
     [SerializeField] private List<SpriteRenderer> Sprites;
     [SerializeField] private UnityEvent OnTriggerCallBack;
+    [SerializeField, Range(10.0f, 180.0f)] private float RotateSpeed = 10.0f;
     private float value = 0.5f;
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -31,18 +31,7 @@ public class PickUp : MonoBehaviour
 
     void Update()
     {
-        Vector2 TransChange = new Vector2(value, 0.0f);
-        transform.localScale -= (Vector3)TransChange * Time.deltaTime;
-        if (transform.localScale.x < 0.2f)
-        {
-            value *= -1;
-            transform.localScale = new Vector3(0.2f, 1,1);
-        }
-        else if (transform.localScale.x > 1.0f)
-        {
-            transform.localScale = new Vector3(1f, 1,1);
-            value *= -1;
-        }
+        transform.RotateAround(transform.position, Vector3.up, RotateSpeed * Time.deltaTime);
     }
 }
 
