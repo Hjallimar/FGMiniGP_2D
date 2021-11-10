@@ -7,8 +7,10 @@ public class MovingPlatform : MonoBehaviour
 {
     [SerializeField] private Rigidbody2D MyRigidBody;
     [SerializeField] private Transform EndLocation;
+    [SerializeField] private Collider2D TriggerZone;
     [SerializeField, Range(1.0f, 10.0f)] private float TravelTime = 5.0f;
     [SerializeField, Range(0.0f, 10.0f)] private float WaitTime = 5.0f;
+    [SerializeField] private bool StickyPlatform = true;
     private Vector2 StartPos;
     private Vector2 EndPos;
     private float LerpValue;
@@ -27,6 +29,10 @@ public class MovingPlatform : MonoBehaviour
         EndPos = EndLocation.position;
         TimeCounter = 0.0f;
         LerpValue = 0.0f;
+        if (StickyPlatform)
+        {
+            TriggerZone.enabled = true;
+        }
     }
 
     // Update is called once per frame

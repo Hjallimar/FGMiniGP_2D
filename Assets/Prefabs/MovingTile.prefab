@@ -101,8 +101,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MyRigidBody: {fileID: 946389470674947127}
   EndLocation: {fileID: 946389470706273307}
+  TriggerZone: {fileID: 7025590194266927215}
   TravelTime: 4
   WaitTime: 2
+  StickyPlatform: 1
 --- !u!50 &946389470674947127
 Rigidbody2D:
   serializedVersion: 4
