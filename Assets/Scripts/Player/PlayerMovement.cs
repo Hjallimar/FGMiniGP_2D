@@ -27,6 +27,9 @@ public class PlayerMovement : MonoBehaviour
     private bool Grounded = false;
     private int jumpCounter = 0;
 
+    private bool Hanging = false;
+    private Rigidbody2D HangingRB;
+    
     public Player playerEnum;
 
     public enum Player
@@ -44,6 +47,11 @@ public class PlayerMovement : MonoBehaviour
 
     public void AddMovement(Vector2 direction)
     {
+        if (Hanging)
+        {
+            HangingRB.AddForce(direction * MoveSpeed * Time.deltaTime * Acceleration);
+            return;
+        }
         if(!Dashing)
         RB.AddForce(direction * MoveSpeed * Time.deltaTime * Acceleration);
     }
@@ -111,6 +119,24 @@ public class PlayerMovement : MonoBehaviour
             DashCD = false;
             DashingCorutine = null;
         }
+    #endregion
+
+    #region Hanging
+
+    public void StartHanging(Rigidbody2D newForceApplication)
+    {
+        RB.isKinematic = true;
+        HangingRB = newForceApplication;
+        Hanging = true;
+    }
+
+    public void StopHanging()
+    {
+        RB.isKinematic = false;
+        HangingRB = null;
+        Hanging = false;
+    }
+
     #endregion
     
     public void Die()
