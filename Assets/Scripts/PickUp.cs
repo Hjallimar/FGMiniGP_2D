@@ -2,25 +2,30 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickUp : MonoBehaviour
 {
     [SerializeField] private ParticleSystem OnCollect;
     [SerializeField] private CircleCollider2D Collider;
     [SerializeField] private List<SpriteRenderer> Sprites;
+    [SerializeField] private UnityEvent OnTriggerCallBack;
     private float value = 0.5f;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            OnCollect.Play();
-            Collider.enabled = false;
-            foreach (SpriteRenderer sprite in Sprites)
-            {
-                sprite.enabled = false;
-            }
-            Debug.Log("Shieet dawn I got collected");
-            
+            OnTriggerCallBack.Invoke();
+            SetActivation(false);
+        }
+    }
+
+    public void SetActivation(bool Status)
+    {
+        Collider.enabled = Status;
+        foreach (SpriteRenderer sprite in Sprites)
+        {
+            sprite.enabled = Status;
         }
     }
 
