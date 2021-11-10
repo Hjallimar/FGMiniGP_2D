@@ -49,6 +49,7 @@
             <e p="PlayerController.cs" t="Include" />
             <e p="PlayerMovement.cs" t="Include" />
           </e>
+          <e p="RopeGrabPoint.cs" t="Include" />
         </e>
       </e>
       <e p="MiniGP_2D.sln" t="IncludeFlat" />

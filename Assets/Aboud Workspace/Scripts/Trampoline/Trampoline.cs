@@ -5,9 +5,14 @@ public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float      jumpForce;
     private                  GameObject player;
-    
-    public bool inPosition;
-    
+    private                  Animator   anim;
+    public                   bool       inPosition;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
        
@@ -36,6 +41,7 @@ public class Trampoline : MonoBehaviour
     {
         if (inPosition)
         {
+            anim.SetTrigger("Launch");
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
             Debug.Log("Heya");
         }
