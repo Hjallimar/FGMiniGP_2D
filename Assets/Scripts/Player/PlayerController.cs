@@ -26,13 +26,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool MirrorDash = false;
     [SerializeField] private bool MirrorGravity = false;
     [SerializeField] private bool KeepVelocityOnSwap = false;
-    
-    [Header("Camera Settings")]
-    private Vector3 CameraOffset = new Vector3(0,0,-10);
+
+    [Header("Camera Settings")] 
+    [SerializeField] private bool HorizontalCams = false;
+    private bool previousBool;
     [SerializeField] private bool AdjustCameraX = false;
     [SerializeField] private bool AdjustCameraY = false;
     [SerializeField] private Camera PrimaryCamera;
     [SerializeField] private Camera SecondaryCamera;
+    private Vector3 CameraOffset = new Vector3(0,0,-10);
   
     private PlayerMovement CurrentPlayer;
     private PlayerMovement SecondaryPlayer;
@@ -59,6 +61,7 @@ public class PlayerController : MonoBehaviour
             Player2.transform.Rotate(Vector3.right, 180);
         }
 
+        previousBool = HorizontalCams;
         if (MultiPlayer)
         {
             SetupMultiPlayer();
@@ -79,9 +82,10 @@ public class PlayerController : MonoBehaviour
     void SetupMultiPlayer()
     {
         Indicator.SetActive(false);
-        SecondaryCamera.enabled = true;
-        PrimaryCamera.rect = new Rect(0,0, 0.49f, 1.0f);
-        SecondaryCamera.rect = new Rect(0.51f,0, 0.49f, 1.0f);
+        if(HorizontalCams)
+            SetUpHorizontalCameras();
+        else
+            SetupVerticalCameras();
         MirrorDash = false;
         MirrorJump = false;
         MirrorMove = false;
@@ -116,6 +120,11 @@ public class PlayerController : MonoBehaviour
         if (MultiPlayer)
         {
             MultiPlayerUpdate();
+            if (HorizontalCams != previousBool)
+            {
+                StartCoroutine(LerpToHorizontal(HorizontalCams));
+                previousBool = HorizontalCams;
+            }
         }
         else
         {
@@ -135,6 +144,43 @@ public class PlayerController : MonoBehaviour
         UpdateCamera();
     }
 
+    void SetUpHorizontalCameras()
+    {
+        SecondaryCamera.enabled = true;
+        PrimaryCamera.rect = new Rect(0,0.501f, 1f, 0.495f);
+        SecondaryCamera.rect = new Rect(0,0, 1f, 0.495f);
+    }
+
+    private IEnumerator LerpToHorizontal(bool Moddify)
+    {
+        float timer = 0.0f;
+        float t = 0.0f;
+        while (timer < 1.0f)
+        {
+            timer += Time.deltaTime;
+            if (Moddify)
+                t = timer;
+            else
+                t = 1.0f - timer;
+
+            
+            Vector4 Primary = Vector4.Lerp(new Vector4(0, 0, 0.495f, 1.0f), new Vector4(0,0, 1.0f, 0.495f), t);
+            PrimaryCamera.rect = new Rect(Primary.x, Primary.y, Primary.z, Primary.w); 
+            
+            Vector4 Secondery = Vector4.Lerp(new Vector4(0.501f,0, 0.495f, 1.0f), new Vector4(0,.501f, 1f, 0.495f), t);
+            SecondaryCamera.rect = new Rect(Secondery.x, Secondery.y, Secondery.z, Secondery.w);
+            
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+    }
+    
+    void SetupVerticalCameras()
+    {
+        SecondaryCamera.enabled = true;
+        PrimaryCamera.rect = new Rect(0,0, 0.495f, 1.0f);
+        SecondaryCamera.rect = new Rect(0.501f,0, 0.495f, 1.0f);
+    }
+    
     void Jump()
     {
         CurrentPlayer.Jump();

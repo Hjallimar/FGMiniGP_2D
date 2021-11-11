@@ -797,11 +797,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994945992066758624, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: m_Size.x
-      value: 20
+      value: 36.26
       objectReference: {fileID: 0}
     - target: {fileID: 2994945992066758625, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: Width
-      value: 20
+      value: 36.26
       objectReference: {fileID: 0}
     - target: {fileID: 2994945992066758625, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: Height
@@ -817,11 +817,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2994945992135770711, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 36.26
       objectReference: {fileID: 0}
     - target: {fileID: 2994945994003497542, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: m_LocalScale.x
-      value: 20
+      value: 36.26
       objectReference: {fileID: 0}
     - target: {fileID: 2994945994003497542, guid: 7d5294bac49ea9947aeb091dbf28db62, type: 3}
       propertyPath: m_LocalScale.y
@@ -1025,7 +1025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1184124230491856189, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: MultiPlayer
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1184124230491856189, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: AdjustCameraX
@@ -1042,6 +1042,10 @@ PrefabInstance:
     - target: {fileID: 1184124230491856189, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: CameraOffset.z
       value: -10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1184124230491856189, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: HorizontalCams
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1184124230491856189, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: KeepVelocityOnSwap
@@ -1148,12 +1152,60 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.45356444
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.2559185
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927368252353220945, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.764151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.45356444
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.2559185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_AllowDynamicResolution
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7318425390626413485, guid: 4c69e1b603cb9ab4dad1bc1f9fd401b2, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
