@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool MirrorJump = false;
     [SerializeField] private bool MirrorDash = false;
     [SerializeField] private bool MirrorGravity = false;
+    [SerializeField] private bool KeepVelocityOnSwap = false;
     
     [Header("Camera Settings")]
     private Vector3 CameraOffset = new Vector3(0,0,-10);
@@ -160,6 +161,15 @@ public class PlayerController : MonoBehaviour
     {
         if (SecondaryPlayer.Dead)
             return;
+        if (KeepVelocityOnSwap)
+        {
+            Rigidbody2D Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
+            Rigidbody2D First = CurrentPlayer.GetComponent<Rigidbody2D>();
+            Vector2 TempVelocity = Second.velocity;
+            Second.velocity = First.velocity;
+            First.velocity = TempVelocity;
+        }
+        
         Vector2 TempPos = SecondaryPlayer.transform.position;
         SecondaryPlayer.transform.position = CurrentPlayer.transform.position;
         CurrentPlayer.transform.position = TempPos;
