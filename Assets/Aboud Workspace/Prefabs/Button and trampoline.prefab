@@ -270,6 +270,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   jumpForce: 800
+  withAnimation: 1
   inPosition: 0
 --- !u!61 &6770063521987794299
 BoxCollider2D:
@@ -465,6 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trampoline: {fileID: 6770063521987794298}
+  withAnimation: 1
 --- !u!95 &3503078787149449648
 Animator:
   serializedVersion: 3

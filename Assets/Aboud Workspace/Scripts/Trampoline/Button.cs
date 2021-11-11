@@ -5,6 +5,7 @@ using UnityEngine;
 public class Button : MonoBehaviour
 {
     [SerializeField] private Trampoline trampoline;
+    [SerializeField] private bool       withAnimation;
     private                  Animator   anim;
     
     private void Start()
@@ -16,7 +17,8 @@ public class Button : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            anim.SetTrigger("Press");
+            if(withAnimation)
+                anim.SetTrigger("Press");
             trampoline.LaunchPlayer();
         }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 public class Trampoline : MonoBehaviour
 {
     [SerializeField] private float      jumpForce;
+    [SerializeField] private bool       withAnimation;
     private                  GameObject player;
     private                  Animator   anim;
     public                   bool       inPosition;
@@ -39,7 +40,8 @@ public class Trampoline : MonoBehaviour
     {
         if (inPosition)
         {
-            anim.SetTrigger("Launch");
+            if(withAnimation)
+                anim.SetTrigger("Launch");
             player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
             Debug.Log("Heya");
         }

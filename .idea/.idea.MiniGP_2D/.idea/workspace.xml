@@ -22,7 +22,9 @@
   <component name="ChangeListManager">
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/Button and trampoline.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/Button and trampoline.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Button.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Button.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +116,7 @@
       <workItem from="1636444997044" duration="5934000" />
       <workItem from="1636488355032" duration="3046000" />
       <workItem from="1636531497964" duration="16975000" />
-      <workItem from="1636618688961" duration="783000" />
+      <workItem from="1636618688961" duration="837000" />
     </task>
     <servers />
   </component>
