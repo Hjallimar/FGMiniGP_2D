@@ -6,9 +6,8 @@ using UnityEngine;
 //Sick player contoller
 public class PlayerController : MonoBehaviour
 {
-    [Header("Keybinds")]
-    [SerializeField] private KeyCode SwapPositionKey = KeyCode.Q;
-    [SerializeField] private KeyCode SwapTargetKey = KeyCode.E;
+    [Header("Keybinds")] 
+    [SerializeField] private KeybindHolder KeyBinds;
     [Header("Player GameObjects")]
     [SerializeField] private PlayerMovement Player1;
     [SerializeField] private PlayerMovement Player2;
@@ -88,26 +87,24 @@ public class PlayerController : MonoBehaviour
     
     void MultiPlayerUpdate()
     {
-        Playerinput.x = Input.GetKey(KeyCode.A) ? -1 : Input.GetKey(KeyCode.D) ? 1 : 0;
-        SecondPlayerInput.x = Input.GetKey(KeyCode.LeftArrow) ? -1 : Input.GetKey(KeyCode.RightArrow) ? 1 : 0;
+        if (Input.GetKeyDown(KeyBinds.Quit))
+        {
+            Application.Quit();
+        }
+        Playerinput.x = Input.GetKey(KeyBinds.PlayerOneLeft) ? -1 : Input.GetKey(KeyBinds.PlayerOneRight) ? 1 : 0;
+        SecondPlayerInput.x = Input.GetKey(KeyBinds.PlayerTwoLeft) ? -1 : Input.GetKey(KeyBinds.PlayerTwoRight) ? 1 : 0;
         
-        if (Input.GetKeyDown(SwapPositionKey))
+        if (Input.GetKeyDown(KeyBinds.PlayerOneSwapPlace) || Input.GetKeyDown(KeyBinds.PlayerTwoSwapPlace))
             Swap();
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyBinds.PlayerOneJump))
             CurrentPlayer.Jump();
-        if(Input.GetKeyDown(KeyCode.UpArrow))
+        if(Input.GetKeyDown(KeyBinds.PlayerTwoJump))
             SecondaryPlayer.Jump();
 
         CurrentPlayer.AddMovement(Playerinput);
         SecondaryPlayer.AddMovement(SecondPlayerInput);
-
-        if (Input.GetMouseButtonDown(0))
-            CurrentPlayer.DashDirection(Playerinput);
-        if (Input.GetMouseButtonDown(0))
-            SecondaryPlayer.DashDirection(SecondPlayerInput);
         
-
         MovePlayer();
         UpdateCamera();
     }
@@ -121,21 +118,15 @@ public class PlayerController : MonoBehaviour
         else
         {
             Playerinput.x = Input.GetAxisRaw("Horizontal");
-            if (Input.GetKeyDown(SwapPositionKey))
+            if (Input.GetKeyDown(KeyBinds.SingleSwapPlace))
                 Swap();
 
-            if(Input.GetKeyDown(SwapTargetKey))
+            if(Input.GetKeyDown(KeyBinds.SingleSwapTarget))
                 SwapTarget();
 
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyBinds.SingleJump))
                 Jump();
-
-            if (Input.GetMouseButtonDown(0))
-            {
-                CurrentPlayer.DashDirection(Playerinput);
-                if(MirrorDash && !SecondaryPlayer.Dead)
-                    SecondaryPlayer.DashDirection(-Playerinput);
-            }
+            
             MovePlayer();
         }
         

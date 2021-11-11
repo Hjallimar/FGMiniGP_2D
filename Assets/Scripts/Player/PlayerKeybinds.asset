@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b412ae5f62d087a4f83b22b922ae97cd, type: 3}
+  m_Name: PlayerKeybinds
+  m_EditorClassIdentifier: 
+  Quit: 27
+  SingleJump: 32
+  SingleSwapPlace: 113
+  SingleSwapTarget: 101
+  SingleInteract: 114
+  PlayerOneJump: 119
+  PlayerOneSwapPlace: 9
+  PlayerOneLeft: 97
+  PlayerOneRight: 100
+  PlayerOneInteract: 101
+  PlayerTwoJump: 273
+  PlayerTwoSwapPlace: 303
+  PlayerTwoLeft: 276
+  PlayerTwoRight: 275
+  PlayerTwoInteract: 305

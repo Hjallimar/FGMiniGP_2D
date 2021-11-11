@@ -131,8 +131,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e2f5103e9a6344da22f5a950ad9059, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SwapPositionKey: 113
-  SwapTargetKey: 101
+  KeyBinds: {fileID: 11400000, guid: 15a625442d9f30d4cbb40a7a00e733bc, type: 2}
   Player1: {fileID: 3632531958032584196}
   Player2: {fileID: 4763914872349724692}
   MultiPlayer: 0
