@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8740610100233255524}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: Trampoline parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 6770063520304988391}
   - component: {fileID: 6770063520304988390}
   m_Layer: 0
-  m_Name: Cube (5)
+  m_Name: Button Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
