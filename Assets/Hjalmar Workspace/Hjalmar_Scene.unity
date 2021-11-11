@@ -1067,11 +1067,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.28
+      value: 3.28
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.56
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1079,19 +1079,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: -0.64594644
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1
+      value: 0.76338273
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1103,7 +1103,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8604357903845768985, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 180
+      value: 260.473
       objectReference: {fileID: 0}
     - target: {fileID: 8643326642341203516, guid: eea4ee795c7d2b241a8bce23478eaa40, type: 3}
       propertyPath: m_Layer
