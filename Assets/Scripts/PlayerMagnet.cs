@@ -1,23 +1,36 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Numerics;
+using Unity.Collections;
 using UnityEngine;
+using Vector2 = UnityEngine.Vector2;
 
 public class PlayerMagnet : MonoBehaviour
 {
     [SerializeField] private Transform MagnetPoint;
-    private Rigidbody2D player;
+    [SerializeField] private Rigidbody2D player;
     private float previousGravity;
+    private bool Loose = false;
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger enter");
         if (other.gameObject.CompareTag("Player"))
         {
-            player = other.gameObject.GetComponent<Rigidbody2D>();
-            player.gameObject.transform.position = MagnetPoint.position;
-            previousGravity = player.gravityScale;
-            player.isKinematic = true;
-            player.gravityScale = 0.0f;
+            
+            if (Loose)
+            {
+                Loose = false;   
+                return;
+            }
+            if (player == null)
+            {
+                player = other.gameObject.GetComponent<Rigidbody2D>();
+                player.gameObject.transform.position = MagnetPoint.position;
+                previousGravity = player.gravityScale;
+                player.isKinematic = true;
+                player.gravityScale = 0.0f;
+            }
         }
     }
 
@@ -29,14 +42,20 @@ public class PlayerMagnet : MonoBehaviour
         }
     }
 
+    
+    
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Trigger Exit");
         if (other.gameObject.CompareTag("Player"))
         {
-            player.gravityScale = previousGravity;
-            player.isKinematic = false;
-            player = null;
+            if (player != null)
+            {
+                Loose = true;
+                player.gravityScale = previousGravity;
+                player.isKinematic = false;
+                player = null;
+            }
         }
     }
 }
