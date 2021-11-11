@@ -42,8 +42,14 @@ public class PlayerMagnet : MonoBehaviour
         }
     }
 
-    
-    
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawSphere(MagnetPoint.transform.position, 0.05f);
+    }
+#endif
+
     private void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Trigger Exit");
