@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Mirror Restrictions")] 
     [SerializeField] private bool MirrorMove = false;
+    [SerializeField] private bool CONSTANTMIRRORMOVE = false;
     [SerializeField] private bool MirrorJump = false;
     [SerializeField] private bool MirrorDash = false;
     [SerializeField] private bool MirrorGravity = false;
@@ -141,9 +142,18 @@ public class PlayerController : MonoBehaviour
     }
     void MovePlayer()
     {
-        CurrentPlayer.AddMovement(Playerinput);
-        if(MirrorMove && !SecondaryPlayer.Dead)
-            SecondaryPlayer.AddMovement(-Playerinput);
+        if (CONSTANTMIRRORMOVE)
+        {
+            Player1.AddMovement(Playerinput);
+            if(MirrorMove && !SecondaryPlayer.Dead)
+                Player2.AddMovement(-Playerinput);
+        }
+        else
+        {
+            CurrentPlayer.AddMovement(Playerinput);
+            if(MirrorMove && !SecondaryPlayer.Dead)
+                SecondaryPlayer.AddMovement(-Playerinput);
+        }
     }
 
     void Swap()
