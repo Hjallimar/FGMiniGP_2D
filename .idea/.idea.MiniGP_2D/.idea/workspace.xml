@@ -23,12 +23,7 @@
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/Button and trampoline.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/Button and trampoline.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/CheckPoint.prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/CheckPoint.prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/Red_Magnet.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/Red_Magnet.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,18 +34,19 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/P_OriController.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hazards/LavaFloor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/FallingState.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/OneWayTrigger.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/WalkingState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Checkpoints/Checkpoint.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerMagnet.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/JumpState.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/BaseState.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Hjalmar Workspace/Prototype Scripts/StateMachine/StateMachine.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/PickUp.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Hazards/LavaFloor.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/OneWayTrigger.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <changedPaths>
@@ -63,10 +59,11 @@
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/Projectile.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Checkpoints/Checkpoint.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/TrampolineSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Button.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
+      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20de4skfvskmjd9D1SYPDlltGxL" />
@@ -121,7 +118,7 @@
       <workItem from="1636444997044" duration="5934000" />
       <workItem from="1636488355032" duration="3046000" />
       <workItem from="1636531497964" duration="16975000" />
-      <workItem from="1636618688961" duration="2101000" />
+      <workItem from="1636618688961" duration="3159000" />
     </task>
     <servers />
   </component>

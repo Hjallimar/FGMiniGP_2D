@@ -156,7 +156,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Swap()
+    public void Swap()
     {
         if (SecondaryPlayer.Dead)
             return;
