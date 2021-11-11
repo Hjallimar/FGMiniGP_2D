@@ -27,6 +27,7 @@ public class LavaFloor : MonoBehaviour
 
     private void OnDrawGizmos()
     {
+        
         if (!LavaCollider)
         {
             LavaCollider = GetComponent<BoxCollider2D>();

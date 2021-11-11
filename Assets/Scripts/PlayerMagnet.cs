@@ -5,40 +5,51 @@ using System.Numerics;
 using Unity.Collections;
 using UnityEngine;
 using Vector2 = UnityEngine.Vector2;
+using Vector3 = UnityEngine.Vector3;
 
 public class PlayerMagnet : MonoBehaviour
 {
     [SerializeField] private Transform MagnetPoint;
-    [SerializeField] private Rigidbody2D player;
+    [SerializeField] private Rigidbody2D rigidBody;
+    [SerializeField] private PlayerMovement.Player Repell;
+    [SerializeField] private float RepellForce;
     private float previousGravity;
     private bool Loose = false;
+    private GameObject player; 
     private void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log("Trigger enter");
-        if (other.gameObject.CompareTag("Player"))
+        player = other.gameObject;
+        if (player.CompareTag("Player"))
         {
             
+            if (player.GetComponent<PlayerMovement>().playerEnum == Repell)
+            {
+                Vector2 Opposite = transform.position - player.transform.position;
+                player.GetComponent<Rigidbody2D>().AddForce(-Opposite.normalized * RepellForce);
+                return;
+            }
             if (Loose)
             {
                 Loose = false;   
                 return;
             }
-            if (player == null)
+            if (rigidBody == null)
             {
-                player = other.gameObject.GetComponent<Rigidbody2D>();
-                player.gameObject.transform.position = MagnetPoint.position;
-                previousGravity = player.gravityScale;
-                player.isKinematic = true;
-                player.gravityScale = 0.0f;
+                rigidBody = player.GetComponent<Rigidbody2D>();
+                rigidBody.gameObject.transform.position = MagnetPoint.position;
+                previousGravity = rigidBody.gravityScale;
+                rigidBody.isKinematic = true;
+                rigidBody.gravityScale = 0.0f;
             }
         }
     }
 
     private void Update()
     {
-        if (player != null)
+        if (rigidBody != null)
         {
-            player.velocity = Vector2.zero;
+            rigidBody.velocity = Vector2.zero;
         }
     }
 
@@ -55,12 +66,12 @@ public class PlayerMagnet : MonoBehaviour
         Debug.Log("Trigger Exit");
         if (other.gameObject.CompareTag("Player"))
         {
-            if (player != null)
+            if (rigidBody != null)
             {
                 Loose = true;
-                player.gravityScale = previousGravity;
-                player.isKinematic = false;
-                player = null;
+                rigidBody.gravityScale = previousGravity;
+                rigidBody.isKinematic = false;
+                rigidBody = null;
             }
         }
     }
