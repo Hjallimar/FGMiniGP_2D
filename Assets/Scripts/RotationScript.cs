@@ -13,7 +13,7 @@ public class RotationScript : MonoBehaviour
     {
         if (RotationPivot == null)
         {
-            transform.RotateAround(Vector3.forward, RotationSpeed * Time.deltaTime);
+            transform.Rotate(Vector3.forward, RotationSpeed * Time.deltaTime);
         }
         else
         {
