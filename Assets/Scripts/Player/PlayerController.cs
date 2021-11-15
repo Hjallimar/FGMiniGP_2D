@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool MirrorJump = false;
     [SerializeField] private bool MirrorDash = false;
     [SerializeField] private bool MirrorGravity = false;
+    [SerializeField] private bool SwapGravityOnSwap = false;
     [SerializeField] private bool KeepVelocityOnSwap = false;
 
     [Header("Camera Settings")] 
@@ -35,7 +37,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Camera PrimaryCamera;
     [SerializeField] private Camera SecondaryCamera;
     private Vector3 CameraOffset = new Vector3(0,0,-10);
-  
+
+    [Header("Super power stuffs")] 
+    [SerializeField] private float Duration = 5.0f;
+    [SerializeField, Range(0.1f, 2.0f)] private float JumpForceMultiplier = 5.0f;
+    [SerializeField] private int ExtraJumps = 2;
+    private float PowerUpTimer = 0.0f;
+    private Coroutine PowerUpCorutine;
+    
     private PlayerMovement CurrentPlayer;
     private PlayerMovement SecondaryPlayer;
 
@@ -207,13 +216,22 @@ public class PlayerController : MonoBehaviour
     {
         if (SecondaryPlayer.Dead)
             return;
+        Rigidbody2D Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
+        Rigidbody2D First = CurrentPlayer.GetComponent<Rigidbody2D>();
         if (KeepVelocityOnSwap)
         {
-            Rigidbody2D Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
-            Rigidbody2D First = CurrentPlayer.GetComponent<Rigidbody2D>();
+            Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
+            First = CurrentPlayer.GetComponent<Rigidbody2D>();
             Vector2 TempVelocity = Second.velocity;
             Second.velocity = First.velocity;
             First.velocity = TempVelocity;
+        }
+
+        if (SwapGravityOnSwap)
+        {
+            float tempGravity = Second.gravityScale;
+            Second.gravityScale = First.gravityScale;
+            First.gravityScale = tempGravity;
         }
         
         Vector2 TempPos = SecondaryPlayer.transform.position;
@@ -270,6 +288,31 @@ public class PlayerController : MonoBehaviour
         PrimaryCamera.transform.position = Center;
     }
 
+
+    public void ActivateCoolSuperMechanic()
+    {
+        PowerUpTimer += Duration;
+        if (PowerUpCorutine != null)
+            PowerUpCorutine = StartCoroutine(PowerUpCountDown());
+
+    }
+
+    private IEnumerator PowerUpCountDown()
+    {
+        float loopTimer = 0.0f;
+        Player1.ActivateSuperPower(JumpForceMultiplier, ExtraJumps);
+        Player2.ActivateSuperPower(JumpForceMultiplier, ExtraJumps);
+        while (loopTimer < PowerUpTimer)
+        {
+            float delta = Time.deltaTime;
+            loopTimer += delta;
+            yield return new WaitForSeconds(delta);
+        }
+        Player1.DeactivateSuperPower();
+        Player2.DeactivateSuperPower();
+        PowerUpTimer = 0.0f;
+        PowerUpCorutine = null;
+    }
     public void ResetGame()
     {
         if (Player1.Dead && Player2.Dead)

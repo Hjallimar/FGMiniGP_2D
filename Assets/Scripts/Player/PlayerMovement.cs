@@ -27,6 +27,10 @@ public class PlayerMovement : MonoBehaviour
     private bool Grounded = false;
     private int jumpCounter = 0;
 
+    private float CurrentJumpForce;
+    private int CurrentMaxJump;
+    
+
     private bool Hanging = false;
     private Rigidbody2D HangingRB;
     
@@ -43,6 +47,8 @@ public class PlayerMovement : MonoBehaviour
         MyController = playerController;
         SpawnPos = transform.position;
         Dead = false;
+        CurrentJumpForce = Jumpforce;
+        CurrentMaxJump = MaxJumpCount;
     }
 
     public void AddMovement(Vector2 direction)
@@ -62,9 +68,9 @@ public class PlayerMovement : MonoBehaviour
             if(Dashing)
                 return;
 
-            if (Grounded || jumpCounter < MaxJumpCount)
+            if (Grounded || jumpCounter < CurrentMaxJump)
             {
-                RB.AddForce(Vector2.up * Jumpforce * RB.gravityScale);
+                RB.AddForce(Vector2.up * CurrentJumpForce * RB.gravityScale);
                 jumpCounter++;
             }
         }
@@ -78,7 +84,23 @@ public class PlayerMovement : MonoBehaviour
             Grounded = false;
         }
     #endregion
+
+    #region SuperPower
+
+    public void ActivateSuperPower(float ForceMultiply, int MoreJumps)
+    {
+        CurrentJumpForce = Jumpforce * ForceMultiply;
+        CurrentMaxJump = MaxJumpCount + MoreJumps;
+    }
     
+    public void DeactivateSuperPower()
+    {
+        CurrentJumpForce = Jumpforce;
+        CurrentMaxJump = MaxJumpCount;
+    }
+    
+
+    #endregion
 
     #region Dashing
 
