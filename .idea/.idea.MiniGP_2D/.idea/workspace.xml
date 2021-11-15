@@ -21,9 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/FreezeTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/FreezeTrap.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,10 +59,10 @@
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Checkpoints/Checkpoint.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/TrampolineSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Button.cs" />
-      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/FreezeTrap.cs" />
+      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20de4skfvskmjd9D1SYPDlltGxL" />
@@ -120,7 +118,7 @@
       <workItem from="1636488355032" duration="3046000" />
       <workItem from="1636531497964" duration="16975000" />
       <workItem from="1636618688961" duration="4002000" />
-      <workItem from="1636966699918" duration="4263000" />
+      <workItem from="1636966699918" duration="4957000" />
     </task>
     <servers />
   </component>

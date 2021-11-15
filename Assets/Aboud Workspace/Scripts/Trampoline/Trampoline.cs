@@ -42,7 +42,7 @@ public class Trampoline : MonoBehaviour
         {
             if(withAnimation)
                 anim.SetTrigger("Launch");
-            player.GetComponent<Rigidbody2D>().AddForce(Vector2.up * jumpForce);
+            player.GetComponent<Rigidbody2D>().AddForce(transform.up * jumpForce);
             Debug.Log("Heya");
         }
     }
