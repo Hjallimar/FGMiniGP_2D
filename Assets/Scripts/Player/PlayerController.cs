@@ -207,8 +207,10 @@ public class PlayerController : MonoBehaviour
         else
         {
             CurrentPlayer.AddMovement(Playerinput);
-            if(MirrorMove && !SecondaryPlayer.Dead)
+            if(MirrorMove)
                 SecondaryPlayer.AddMovement(-Playerinput);
+            else
+                SecondaryPlayer.AddMovement(Playerinput);
         }
     }
 
