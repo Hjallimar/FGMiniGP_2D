@@ -9,6 +9,7 @@ public class RopeGrabPoint : MonoBehaviour
     private PlayerMovement Player;
     private bool active;
     [SerializeField] private Rigidbody2D MyRB;
+    
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.R))
