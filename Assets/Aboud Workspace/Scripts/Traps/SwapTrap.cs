@@ -13,6 +13,7 @@ public class SwapTrap : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GetComponent<MeshRenderer>().enabled = false;
             GetComponent<Collider2D>().enabled = false;
             controller = other.GetComponentInParent<PlayerController>();
             StartCoroutine("StartTrap");
@@ -29,6 +30,6 @@ public class SwapTrap : MonoBehaviour
             yield return new WaitForSeconds(timeBetweenSwaps);
 
         }
-        GetComponent<Collider2D>().enabled = true;
+        Destroy(this.gameObject);
     }
 }

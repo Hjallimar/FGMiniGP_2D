@@ -23,7 +23,9 @@
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/M_SwapTrap.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/M_SwapTrap.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +66,7 @@
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" />
       <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" />
+      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/FreezeTrap.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20de4skfvskmjd9D1SYPDlltGxL" />
@@ -118,7 +121,8 @@
       <workItem from="1636444997044" duration="5934000" />
       <workItem from="1636488355032" duration="3046000" />
       <workItem from="1636531497964" duration="16975000" />
-      <workItem from="1636618688961" duration="3159000" />
+      <workItem from="1636618688961" duration="4002000" />
+      <workItem from="1636966699918" duration="3236000" />
     </task>
     <servers />
   </component>
