@@ -231,6 +231,8 @@ public class PlayerController : MonoBehaviour
 
         if (SwapGravityOnSwap)
         {
+            Second.gameObject.transform.Rotate(Vector3.right, 180);
+            First.gameObject.transform.Rotate(Vector3.right, 180);
             float tempGravity = Second.gravityScale;
             Second.gravityScale = First.gravityScale;
             First.gravityScale = tempGravity;
