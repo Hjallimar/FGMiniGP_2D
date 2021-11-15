@@ -45,6 +45,7 @@
         <e p="Scripts" t="Include">
           <e p="GameController.cs" t="Include" />
           <e p="Hazards" t="Include">
+            <e p="KillTimer.cs" t="Include" />
             <e p="LavaFloor.cs" t="Include" />
           </e>
           <e p="MovingPlatform.cs" t="Include" />
