@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PathPrediction : MonoBehaviour
 {
-    public  float          distanceBetweenPoints;
-    public  Vector3          gravity;
-    public  int              numSteps;
-    public  GameObject       stepColliderObject;
-    public  Projectile       projectile;
+    public float      distanceBetweenPoints;
+    public Vector3    gravity;
+    public int        numSteps;
+    public GameObject stepColliderObject;
+    public Projectile projectile;
 
-    private bool             projectileSet = false;
     private List<GameObject> stepColliders = new List<GameObject>();
 
     private void Awake()
@@ -57,7 +56,7 @@ public class PathPrediction : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !projectileSet)
+        if (other.CompareTag("Player") && !other.isTrigger)
         {
             other.GetComponent<Rigidbody2D>().gravityScale = 0;
             other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
@@ -67,7 +66,6 @@ public class PathPrediction : MonoBehaviour
             otherProjectile.enabled = true;
             otherProjectile.transformPoints = stepColliders;
             otherProjectile.currentTarget = otherProjectile.transformPoints[0].transform.position - other.transform.position;
-            projectileSet = true;
         }
     }
     
