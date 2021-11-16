@@ -9,20 +9,17 @@ public class PathPrediction : MonoBehaviour
     public  int              numSteps;
     public  GameObject       stepColliderObject;
     public  Projectile       projectile;
+
+    private bool             projectileSet = false;
     private List<GameObject> stepColliders = new List<GameObject>();
 
     private void Awake()
     {
-        
         for (int i = 0; i < numSteps; i++)
         {
             GameObject StepCollider = Instantiate(stepColliderObject);
             stepColliders.Add(StepCollider);
-
         }
-
-        projectile.transformPoints = stepColliders;
-        UpdatePath(transform.position, velocity, gravity);
     }
 
     private void Update()
@@ -46,7 +43,7 @@ public class PathPrediction : MonoBehaviour
             stepCollider.transform.position = position;
             Vector3 stepColliderGravity = stepCollider.GetComponent<GravityTrigger>().gravity;
             
-                gravity = stepColliderGravity;
+            gravity = stepColliderGravity;
 
             lineRenderer.SetPosition(i, position);
  
@@ -57,4 +54,22 @@ public class PathPrediction : MonoBehaviour
         
 
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Player") && !projectileSet)
+        {
+            other.GetComponent<Rigidbody2D>().gravityScale = 0;
+            other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+            other.GetComponentInParent<PlayerController>().enabled = false;
+            
+            Projectile otherProjectile = other.gameObject.GetComponent<Projectile>();
+            otherProjectile.enabled = true;
+            otherProjectile.transformPoints = stepColliders;
+            otherProjectile.currentTarget = otherProjectile.transformPoints[0].transform.position - other.transform.position;
+            projectileSet = true;
+        }
+    }
+    
+    
 }

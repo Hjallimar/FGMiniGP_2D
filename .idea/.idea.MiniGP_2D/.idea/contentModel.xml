@@ -57,7 +57,10 @@
             <e p="PlayerMovement.cs" t="Include" />
           </e>
           <e p="PlayerMagnet.cs" t="Include" />
-          <e p="RopeGrabPoint.cs" t="Include" />
+          <e p="Rope" t="Include">
+            <e p="RopeController.cs" t="Include" />
+            <e p="RopeGrabPoint.cs" t="Include" />
+          </e>
           <e p="RotationScript.cs" t="Include" />
         </e>
       </e>
