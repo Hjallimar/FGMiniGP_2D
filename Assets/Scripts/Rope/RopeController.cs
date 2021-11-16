@@ -2,6 +2,8 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
+using UnityEditor;
+using UnityEditor.SearchService;
 using UnityEngine;
 
 public class RopeController : MonoBehaviour
@@ -16,28 +18,16 @@ public class RopeController : MonoBehaviour
     [SerializeField] private GameObject RootSprite;
     [SerializeField] private int AmmountOfLinks = 0;
 
-    private bool builtRope = false;
+
+    [SerializeField] private bool ReBuild = false;
+    [SerializeField] private bool ResetRope = false;
+    
     private Rigidbody2D RootRB;
-    [SerializeField] private List<MyRopeLink> RopeLinks = new List<MyRopeLink>();
+    [SerializeField] private List<GameObject> Vevare;
+    private List<MyRopeLink> RopeLinks;
     private Vector2 LinkAnchors = new Vector2(0.6f, -0.4f);
     private float OldScale = 1.0f;
 
-    private void Start()
-    {
-        int temp = AmmountOfJoints;
-        AmmountOfJoints = 0;
-        RemoveLinksFromRope();
-        AmmountOfJoints = temp;
-        BuildRope();
-    }
-
-    public bool Exists(GameObject obj)
-    {
-        MyRopeLink newLink = new MyRopeLink();
-        newLink.gameObject = obj;
-        return RopeLinks.Contains(newLink);
-    }
-    
     private struct MyRopeLink
     {
         public GameObject gameObject;
@@ -66,6 +56,7 @@ public class RopeController : MonoBehaviour
         newLink.triggerCollider = newLink.gameObject.GetComponent<CircleCollider2D>();
         newLink.spriteVisual = newLink.gameObject.GetComponentInChildren<SpriteRenderer>().gameObject.transform;
         RopeLinks.Add(newLink);
+        Vevare.Add(newLink.gameObject);
     }
 
     void InstantiateLink(int i)
@@ -91,17 +82,18 @@ public class RopeController : MonoBehaviour
         {
             CreateNewLink();
         }
-        Debug.Log("Rope has " + RopeLinks.Count + " links");
+        
         for (int i = 0; i < RopeLinks.Count; i++)
         {
             InstantiateLink(i);
         }
-
+        Debug.Log("Rope has been built and has " + RopeLinks.Count + " links");
         OldScale = ScaleSize;
     }
 
     void GatherInformation()
     {
+        RopeLinks = new List<MyRopeLink>();
         RootRB = Root.GetComponent<Rigidbody2D>();
         RootSprite.transform.localScale = new Vector2(0.2f, 0.9f) * ScaleSize;
     }
@@ -127,6 +119,7 @@ public class RopeController : MonoBehaviour
         {
             GameObject Obj = RopeLinks[RopeLinks.Count - 1].gameObject;
             RopeLinks.RemoveAt(RopeLinks.Count -1);
+            Vevare.Remove(Obj);
             DestroyImmediate(Obj);
         }
     }
@@ -148,23 +141,48 @@ public class RopeController : MonoBehaviour
 
         OldScale = ScaleSize;
     }
-
-    private void OnDrawGizmos()
+    
+    private void OnDrawGizmosSelected()
     {
-        if (AmmountOfJoints != RopeLinks.Count)
+        if (ResetRope)
         {
-            if(RopeLinks.Count == 0 && !builtRope)
-                BuildRope();
-            else if(RopeLinks.Count > AmmountOfJoints)
-                RemoveLinksFromRope();
-            else
-                AddLinksToRope();
+            AmmountOfLinks = 0;
+            AmmountOfJoints = 0;
+            RemoveLinksFromRope();
+            RopeLinks.Clear();
+            Vevare.Clear();
+            ResetRope = false;
+            ScaleSize = 1.0f;
+            OldScale = 1.0f;
         }
-        else if(OldScale != ScaleSize)
+        if (ReBuild)
         {
-            ReScaleRope();   
-        }
+            ReBuild = false;
+            if (AmmountOfJoints != AmmountOfLinks)
+            {
+                if (AmmountOfLinks == 0)
+                {
+                    Debug.Log("Building new rope wants: " + AmmountOfJoints + ", current Rope Links: " +  AmmountOfLinks);
+                    BuildRope();
+                }
+                else if(RopeLinks.Count > AmmountOfJoints)
+                {
+                    Debug.Log("Removing links: " + AmmountOfJoints + ", current Rope Links: " +  AmmountOfLinks);
+                    RemoveLinksFromRope();
+                }
+                else
+                {
+                    Debug.Log("Adding links: " + AmmountOfJoints + ", current Rope Links: " +  AmmountOfLinks);
+                    AddLinksToRope();
+                }
+            }
+            else if(OldScale != ScaleSize)
+            {
+                ReScaleRope();   
+            }
 
-        AmmountOfLinks = RopeLinks.Count;
+            AmmountOfLinks = RopeLinks.Count;
+        }
+          
     }
 }
