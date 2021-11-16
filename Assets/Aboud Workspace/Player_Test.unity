@@ -547,12 +547,20 @@ PrefabInstance:
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7780631000522213230, guid: 89ee88418bbbeb14390b600948d48dea, type: 3}
+      propertyPath: velocity
+      value: 0.62
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780631000522213230, guid: 89ee88418bbbeb14390b600948d48dea, type: 3}
       propertyPath: velocity.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7780631000522213230, guid: 89ee88418bbbeb14390b600948d48dea, type: 3}
       propertyPath: velocity.y
       value: 0.61
+      objectReference: {fileID: 0}
+    - target: {fileID: 7780631000522213230, guid: 89ee88418bbbeb14390b600948d48dea, type: 3}
+      propertyPath: distanceBetweenPoints
+      value: 0.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7780631000522213217, guid: 89ee88418bbbeb14390b600948d48dea, type: 3}

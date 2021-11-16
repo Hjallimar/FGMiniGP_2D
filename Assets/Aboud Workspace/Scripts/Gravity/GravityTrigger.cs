@@ -14,7 +14,7 @@ public class GravityTrigger : MonoBehaviour
             if (projectile.currentIndex < projectile.transformPoints.Count)
                 projectile.currentTarget = projectile.transformPoints[projectile.currentIndex].transform.position - projectile.transform.position;
             else
-                this.enabled = false;
+                projectile.enabled = false;
             
         }
         

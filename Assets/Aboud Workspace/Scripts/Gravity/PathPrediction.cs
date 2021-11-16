@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PathPrediction : MonoBehaviour
 {
-    public  Vector3          velocity;
+    public  float          distanceBetweenPoints;
     public  Vector3          gravity;
     public  int              numSteps;
     public  GameObject       stepColliderObject;
@@ -24,7 +24,7 @@ public class PathPrediction : MonoBehaviour
 
     private void Update()
     {
-        UpdatePath(transform.position, velocity, gravity);
+        UpdatePath(transform.position, transform.right, gravity);
     }
 
     private void UpdatePath(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
@@ -34,7 +34,7 @@ public class PathPrediction : MonoBehaviour
         lineRenderer.SetVertexCount(numSteps);
  
         Vector3 position = initialPosition;
-        Vector3 currentVelocity = initialVelocity;
+        Vector3 currentVelocity = initialVelocity * distanceBetweenPoints;
         
         
         for (int i = 0; i < numSteps; ++i)

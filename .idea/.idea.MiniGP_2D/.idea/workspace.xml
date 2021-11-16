@@ -21,14 +21,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Aboud_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Aboud_Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/GameObject.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Prefabs/GameObject.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/Projectile.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/Projectile.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -127,7 +123,7 @@
       <workItem from="1636531497964" duration="16975000" />
       <workItem from="1636618688961" duration="4002000" />
       <workItem from="1636966699918" duration="6195000" />
-      <workItem from="1637050832378" duration="6457000" />
+      <workItem from="1637050832378" duration="9114000" />
     </task>
     <servers />
   </component>
