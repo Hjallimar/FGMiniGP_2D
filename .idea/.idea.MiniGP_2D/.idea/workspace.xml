@@ -23,9 +23,9 @@
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Player_Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,13 +61,13 @@
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Checkpoints/Checkpoint.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/TrampolineSystem.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Button.cs" />
-      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/SwapTrap.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Traps/FreezeTrap.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Trampoline/Trampoline.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/Projectile.cs" />
-      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" />
       <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" />
     </changedPaths>
   </component>
   <component name="ProjectId" id="20de4skfvskmjd9D1SYPDlltGxL" />
@@ -126,6 +126,7 @@
       <workItem from="1636966699918" duration="6195000" />
       <workItem from="1637050832378" duration="9362000" />
       <workItem from="1637073397093" duration="526000" />
+      <workItem from="1637151367389" duration="4379000" />
     </task>
     <servers />
   </component>

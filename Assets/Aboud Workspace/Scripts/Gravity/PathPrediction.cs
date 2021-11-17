@@ -58,9 +58,15 @@ public class PathPrediction : MonoBehaviour
     {
         if (other.CompareTag("Player") && !other.isTrigger)
         {
+            if (other.CompareTag("Player"))
+                other.GetComponent<Projectile>().currentIndex = 0;
+
+            for (int i = 0; i < stepColliders.Count; i++)
+                stepColliders[i].GetComponent<GravityTrigger>().hasTriggered = false;
+            
             other.GetComponent<Rigidbody2D>().gravityScale = 0;
             other.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-            other.GetComponentInParent<PlayerController>().enabled = false;
+            other.GetComponentInParent<PlayerController>().isTransporting = true;
             
             Projectile otherProjectile = other.gameObject.GetComponent<Projectile>();
             otherProjectile.enabled = true;

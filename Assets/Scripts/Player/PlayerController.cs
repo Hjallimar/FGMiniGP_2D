@@ -55,6 +55,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 Playerinput;
 
     public Checkpoint checkpoint;
+    public bool       isTransporting;
     // Start is called before the first frame update
     void Start()
     {
@@ -137,7 +138,8 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Playerinput.x = Input.GetAxisRaw("Horizontal");
+            if(!isTransporting)
+                Playerinput.x = Input.GetAxisRaw("Horizontal");
             if (Input.GetKeyDown(KeyBinds.SingleSwapPlace))
                 Swap();
 
@@ -220,6 +222,25 @@ public class PlayerController : MonoBehaviour
             return;
         Rigidbody2D Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
         Rigidbody2D First = CurrentPlayer.GetComponent<Rigidbody2D>();
+        
+        if (isTransporting)
+        {
+            Projectile SecondProjectile = SecondaryPlayer.GetComponent<Projectile>();
+            Projectile FirstProjectile = CurrentPlayer.GetComponent<Projectile>();
+            Vector3 tempTarget = FirstProjectile.currentTarget;
+            FirstProjectile.currentTarget = SecondProjectile.currentTarget;
+            SecondProjectile.currentTarget = tempTarget;
+            
+            List<GameObject> tempList = FirstProjectile.transformPoints;
+            FirstProjectile.transformPoints = SecondProjectile.transformPoints;
+            SecondProjectile.transformPoints = tempList;
+
+            int tempIndex = FirstProjectile.currentIndex;
+            FirstProjectile.currentIndex = SecondProjectile.currentIndex;
+            SecondProjectile.currentIndex = tempIndex;
+
+        }
+        
         if (KeepVelocityOnSwap)
         {
             Second = SecondaryPlayer.GetComponent<Rigidbody2D>();
