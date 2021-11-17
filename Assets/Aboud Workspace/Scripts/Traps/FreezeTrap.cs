@@ -30,7 +30,7 @@ public class FreezeTrap : MonoBehaviour
             {
                 ropeShooters[i].GetComponent<LineRenderer>().SetVertexCount(2);
                 ropeShooters[i].GetComponent<LineRenderer>().SetPosition(0, ropeShooters[i].transform.position);
-                ropeShooters[i].GetComponent<LineRenderer>().SetPosition(1, transform.position);
+                ropeShooters[i].GetComponent<LineRenderer>().SetPosition(1, other.transform.position);
             }
             
             StartCoroutine("UnFreezePlayer");

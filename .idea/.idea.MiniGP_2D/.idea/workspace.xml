@@ -21,11 +21,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a5ec791a-dffe-4ce7-8820-ede6f7c737be" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/indexLayout.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.MiniGP_2D/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/GravityTrigger.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Aboud Workspace/Scripts/Gravity/PathPrediction.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Player/PlayerController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs/freezeTrap.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefabs/freezeTrap.prefab" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +122,7 @@
       <workItem from="1636966699918" duration="6195000" />
       <workItem from="1637050832378" duration="9362000" />
       <workItem from="1637073397093" duration="526000" />
-      <workItem from="1637151367389" duration="4379000" />
+      <workItem from="1637151367389" duration="4690000" />
     </task>
     <servers />
   </component>
