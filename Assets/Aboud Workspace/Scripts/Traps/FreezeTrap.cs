@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FreezeTrap : MonoBehaviour
 {
-    [SerializeField] private float        freezeDuration;
+    [SerializeField, Range(1f, 10f)] private float        freezeDuration;
     [SerializeField] private                  GameObject[] ropeShooters;
 
     private PlayerController controller;

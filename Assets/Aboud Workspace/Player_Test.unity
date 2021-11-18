@@ -326,8 +326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 3
-  transformPoints: []
-  currentTarget: {x: 0, y: 0, z: 0}
   currentIndex: 0
 --- !u!1 &343190630
 GameObject:
@@ -557,14 +555,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 910987270}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bec845eb5aedb63409f396100d6a1c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   velocity: 3
-  transformPoints: []
-  currentTarget: {x: 0, y: 0, z: 0}
   currentIndex: 0
 --- !u!1 &992064464
 GameObject:

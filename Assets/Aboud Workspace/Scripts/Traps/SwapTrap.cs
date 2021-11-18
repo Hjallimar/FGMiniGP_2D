@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class SwapTrap : MonoBehaviour
 {
-    [SerializeField] private int   numberOfSwaps;
-    [SerializeField] private float timeBetweenSwaps;
+    [SerializeField, Range(1, 10)]   private int   numberOfSwaps;
+    [SerializeField, Range(1f, 10f)] private float timeBetweenSwaps;
 
     private PlayerController controller;
     

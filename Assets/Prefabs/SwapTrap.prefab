@@ -95,8 +95,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e6c1c26b98240428a623644b5b0ae9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numberOfSwaps: 5
-  timeBetweenSwaps: 1
+  numberOfSwaps: 3
+  timeBetweenSwaps: 2.32
 --- !u!58 &4388358951298961924
 CircleCollider2D:
   m_ObjectHideFlags: 0

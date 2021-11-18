@@ -1,16 +1,18 @@
+using System;
 using UnityEngine;
 
 public class GravityTrigger : MonoBehaviour
 {
-    public  Vector3 gravity;
-    public  float   gravityMultiplier = 30;
-    public bool    hasTriggered;
+    public                 float          gravityMultiplier = 30;
+    [NonSerialized] public Vector3        gravity;
+    [NonSerialized] public bool           hasTriggered;
     
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && !other.isTrigger && !hasTriggered)
+        if (!hasTriggered && other.CompareTag("Player") && !other.isTrigger && other.GetComponent<Projectile>().enabled)
         {
             Projectile projectile = other.GetComponent<Projectile>();
+            Debug.Log(projectile.enabled);
             if (projectile.currentIndex < projectile.transformPoints.Count-1)
             {
                 projectile.currentTarget = projectile.transformPoints[projectile.currentIndex].transform.position - projectile.transform.position;

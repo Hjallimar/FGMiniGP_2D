@@ -1,29 +1,29 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PathPrediction : MonoBehaviour
 {
-    public float      distanceBetweenPoints;
-    public Vector3    gravity;
-    public int        numSteps;
-    public GameObject stepColliderObject;
-    public Projectile projectile;
-
     private List<GameObject> stepColliders = new List<GameObject>();
+    
+    public                 float      distanceBetweenPoints;
+    public                 int        numSteps;
+    public                 GameObject stepColliderObject;
+    [NonSerialized] public Vector3    gravity;
 
     private void Awake()
     {
         for (int i = 0; i < numSteps; i++)
         {
-            GameObject StepCollider = Instantiate(stepColliderObject);
-            stepColliders.Add(StepCollider);
+            GameObject stepCollider = Instantiate(stepColliderObject);
+            stepColliders.Add(stepCollider);
         }
     }
 
     private void Update()
     {
-        UpdatePath(transform.position, transform.right, gravity);
+        UpdatePath(transform.position+transform.right*2, transform.right, gravity);
     }
 
     private void UpdatePath(Vector3 initialPosition, Vector3 initialVelocity, Vector3 gravity)
@@ -35,6 +35,7 @@ public class PathPrediction : MonoBehaviour
         Vector3 position = initialPosition;
         Vector3 currentVelocity = initialVelocity * distanceBetweenPoints;
         
+        lineRenderer.SetPosition(0, transform.position);
         
         for (int i = 0; i < numSteps; ++i)
         {
@@ -44,7 +45,7 @@ public class PathPrediction : MonoBehaviour
             
             gravity = stepColliderGravity;
 
-            lineRenderer.SetPosition(i, position);
+            lineRenderer.SetPosition(i+1, position);
  
             position += currentVelocity;
             currentVelocity += gravity;
